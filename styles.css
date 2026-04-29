@@ -1,11 +1,19 @@
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("assets/inter-roman-latin.woff2") format("woff2");
+}
+
 :root {
   color-scheme: light;
   --background: #ffffff;
-  --text: #111111;
-  --muted: #5c5c5c;
-  --line: #d7d7d7;
-  --link: #164c7a;
-  --link-hover: #0d6aa8;
+  --text: #3c3c43;
+  --muted: #67676c;
+  --line: #e2e2e3;
+  --link: #3451b2;
+  --link-hover: #3a5ccc;
 }
 
 * {
@@ -20,8 +28,11 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--text);
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .page {
