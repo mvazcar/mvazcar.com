@@ -1,0 +1,108 @@
+:root {
+  color-scheme: light;
+  --background: #ffffff;
+  --text: #111111;
+  --muted: #5c5c5c;
+  --line: #d7d7d7;
+  --link: #164c7a;
+  --link-hover: #0d6aa8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.page {
+  width: min(100% - 40px, 760px);
+  margin: 36px auto 72px;
+}
+
+.intro {
+  margin-bottom: 34px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.role {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+section {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin-top: 28px;
+}
+
+h2 {
+  margin-bottom: 14px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+p + p {
+  margin-top: 12px;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  text-underline-offset: 0.18em;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  html {
+    font-size: 16px;
+  }
+
+  .page {
+    width: min(100% - 28px, 760px);
+    margin: 24px auto 44px;
+  }
+
+  .intro {
+    margin-bottom: 30px;
+  }
+}
