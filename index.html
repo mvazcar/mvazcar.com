@@ -3,151 +3,155 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="google-site-verification" content="z3DUhXx2A8nm-WWSKP7PkQ0zFl4hOkdGQrjzsrWOwKM">
   <title>Miguel Vázquez-Carrero</title>
-  <meta name="description" content="PhD Candidate in Economics at Universidad Carlos III de Madrid. Research interests: macro-finance, demographics, and growth.">
+  <meta name="description" content="Miguel Vázquez-Carrero — PhD Candidate in Economics at Universidad Carlos III de Madrid. Research in macro-finance, demographics, and growth.">
+  <meta name="author" content="Miguel Vázquez-Carrero">
+  <meta name="google-site-verification" content="z3DUhXx2A8nm-WWSKP7PkQ0zFl4hOkdGQrjzsrWOwKM">
+  <link rel="canonical" href="https://mvazcar.com/">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Miguel Vázquez-Carrero">
+  <meta property="og:description" content="PhD Candidate in Economics at Universidad Carlos III de Madrid. Research in macro-finance, demographics, and growth.">
+  <meta property="og:url" content="https://mvazcar.com/">
+
+  <!-- No favicon (empty data URI also prevents the browser's default favicon.ico request) -->
+  <link rel="icon" href="data:,">
+
+  <!--
+    ============================================================
+    Miguel Vázquez-Carrero — academic site
+    Plain, light, single static file: no header bar, no toggle,
+    no external CSS, no web fonts, no icon-font CDN, no trackers.
+    Loads instantly. Drop it on Netlify as-is.
+
+    TO PERSONALISE:
+      • Photo — replace the <div class="photo">…</div> in the sidebar with:
+                <img class="photo" src="photo.jpg" alt="Miguel Vázquez-Carrero">
+                (add photo.jpg next to this file; a portrait ~600px wide is ideal)
+      • Links under the photo — a ready-to-use snippet is commented out in the sidebar
+    ============================================================
+  -->
+
   <style>
-:root {
-  color-scheme: light;
-  --background: #ffffff;
-  --text: #3c3c43;
-  --muted: #67676c;
-  --line: #e2e2e3;
-  --link: #223b8b;
-  --link-hover: #112057;
-}
-
-    * {
-      box-sizing: border-box;
+    :root{
+      --bg:#ffffff; --text:#070000; --heading:#222; --h2:#393939;
+      --link:#223b8b; --link-hover:#112057; --border:#e5e5e5;
+      --muted:#777; --surface:#f4f4f4; --rule:#d4d4d4;
     }
 
-    html {
-      font-size: 17px;
+    *{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Helvetica Neue",Arial,sans-serif;
+      font-weight:400;
     }
 
-    body {
-      margin: 0;
-      background: var(--background);
-      color: var(--text);
-      font-family: Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+    /* ---------- Layout ---------- */
+    .wrapper{width:min(100% - 80px, 920px); margin:0 auto; padding:52px 0 0}
+    .masthead{text-align:center}
+    .masthead h1{margin:0 0 18px; font-size:1.9rem; font-weight:500; color:var(--heading); line-height:1.15; letter-spacing:.01em}
+    .masthead::after{content:""; display:block; width:120px; height:1px; margin:18px auto 26px; background:var(--rule); border-radius:2px}
+    /* Single column by default; auto-switches to two columns when a photo is present */
+    .cols{display:block}
+    .right-side{min-width:0; max-width:620px; margin:0 auto; padding-bottom:50px}
+    .cols:has(.photo){display:flex; gap:46px; align-items:flex-start}
+    .cols:has(.photo) .left-side{flex:0 0 300px; width:300px}
+    .cols:has(.photo) .right-side{flex:1 1 auto; max-width:560px; margin:0}
+
+    /* ---------- Sidebar: photo ---------- */
+    .photo{
+      width:100%; aspect-ratio:5/6; border:1px solid var(--border); border-radius:6px;
+      background:var(--surface); display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:10px; color:var(--muted); text-align:center;
     }
+    .photo svg{width:62px; height:62px; opacity:.5}
+    .photo .hint{font-size:12px}
+    img.photo{display:block; height:auto; aspect-ratio:auto; object-fit:cover; background:var(--surface)}
 
-    .page {
-      width: min(100% - 40px, 900px);
-      margin: 30px auto 64px;
+    /* Optional link buttons under the photo (used by the commented snippet in the sidebar) */
+    .contact-links{margin-top:20px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
+    .contact-links a{
+      display:inline-flex; align-items:center; justify-content:center; gap:.4ch;
+      min-width:44px; height:40px; padding:0 12px;
+      font-size:15px; font-weight:500; color:var(--link); text-decoration:none;
+      border:1px solid var(--border); border-radius:5px;
     }
+    .contact-links a:hover{background:var(--surface); color:var(--link-hover)}
+    .contact-links svg{width:18px; height:18px; fill:currentColor; display:block}
 
-    .intro {
-      margin-bottom: 26px;
-    }
+    /* ---------- Content ---------- */
+    .right-side p{margin:0 0 16px}
+    a{color:var(--link); text-decoration:none}
+    a:hover{color:var(--link-hover)}
+    a:focus-visible{outline:2px solid var(--link); outline-offset:2px; border-radius:2px}
+    strong{font-weight:500; color:var(--heading)}
 
-    h1,
-    h2,
-    p {
-      margin: 0;
-    }
+    hr.sep{border:0; height:1px; background:var(--rule); margin:24px 0}
 
-    h1 {
-      font-size: clamp(1.75rem, 2.5vw, 2rem);
-      line-height: 1.15;
-      font-weight: 700;
-      letter-spacing: 0;
-      overflow-wrap: anywhere;
-    }
+    h2{color:var(--h2); font-size:20px; font-weight:500; line-height:1.1; margin:28px 0 14px}
+    .right-side ul{margin:0 0 18px; padding-left:0; list-style:none}
+    .right-side li{margin:0 0 8px}
+    .medium-small{font-size:16px}
 
-    .role {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    section {
-      border-top: 1px solid var(--line);
-      padding-top: 14px;
-      margin-top: 22px;
-    }
-
-    h2 {
-      margin-bottom: 10px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0;
-      text-transform: uppercase;
-    }
-
-    p + p {
-      margin-top: 8px;
-    }
-
-    strong {
-      font-weight: 700;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.18em;
-      cursor: pointer;
-    }
-
-    a:hover,
-    a:focus-visible {
-      color: var(--link-hover);
-      text-decoration-thickness: 2px;
-    }
-
-    a:focus-visible {
-      outline: 2px solid currentColor;
-      outline-offset: 3px;
-    }
-
-    @media (max-width: 560px) {
-      html {
-        font-size: 16px;
-      }
-
-      .page {
-        width: min(100% - 28px, 900px);
-        margin: 24px auto 44px;
-      }
-
-      .intro {
-        margin-bottom: 24px;
-      }
+    /* ---------- Responsive ---------- */
+    @media (max-width:760px){
+      .wrapper{width:min(100% - 40px, 920px); padding-top:40px}
+      .cols:has(.photo){flex-direction:column; gap:26px}
+      .cols:has(.photo) .left-side{flex:none; width:100%; max-width:300px; margin:0 auto}
+      .cols:has(.photo) .right-side{max-width:none}
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <header class="intro">
+
+  <div class="wrapper">
+
+    <header class="masthead">
       <h1>Miguel Vázquez-Carrero</h1>
-      <p class="role">PhD Candidate in Economics at Universidad Carlos III de Madrid.</p>
     </header>
 
-    <section aria-labelledby="about">
-      <h2 id="about">About</h2>
-      <p><strong>Research interests:</strong> macro-finance, demographics, and growth.</p>
-      <p><strong>Contact</strong> mvazcar [at] eco.uc3m.es</p>
-    </section>
+    <div class="cols">
 
-    <section aria-labelledby="work">
-      <h2 id="work">Work In Progress</h2>
-      <p>Capital, Demographics and Firm Dynamics, with Andrés Erosa and Sevi Mora.</p>
-    </section>
+      <!-- LEFT: photo (add your own links below it later) -->
+      <aside class="left-side">
+        <!-- Photo goes here later:  <img class="photo" src="photo.jpg" alt="Miguel Vázquez-Carrero"> -->
 
-    <section aria-labelledby="code">
-      <h2 id="code">Code</h2>
-      <p><a href="https://github.com/mvazcar/MCVL">MCVL</a> - A modern Python pipeline to process data from Spanish Social Security.</p>
-      <p><a href="https://github.com/mvazcar/deepHopenhayn">deepHopenhayn</a> - Solving a Hopenhayn model with neural networks.</p>
-      <p><a href="https://github.com/mvazcar/FairModelJAX">FairModelJAX</a> - A JAX port of the Fair Macro Model.</p>
-    </section>
+        <!-- Add your links here later. Uncomment and edit — they'll style as buttons automatically:
+        <div class="contact-links">
+          <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="https://github.com/mvazcar" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:mvazcar@eco.uc3m.es">Email</a>
+        </div>
+        -->
+      </aside>
 
-    <section aria-labelledby="job-market">
-      <h2 id="job-market">Job Market Paper</h2>
-      <p>I will be on the job market in 2027-2028.</p>
-    </section>
-  </main>
+      <!-- RIGHT: main content -->
+      <main class="right-side">
+        <p>I'm a PhD candidate in Economics at Universidad Carlos III de Madrid.</p>
+        <p>My research interests include macro-finance, demographics, and growth.</p>
+        <p>I will be on the academic job market in <strong>2027–2028</strong>.</p>
+        <p>You can contact me at <a href="mailto:mvazcar@eco.uc3m.es">mvazcar@eco.uc3m.es</a>.</p>
+
+        <hr class="sep">
+
+        <h2 id="work-in-progress">Work in Progress</h2>
+        <ul>
+          <li>"From firm demographics to measured TFP" <span class="medium-small">with Andrés Erosa and Sevi Mora</span></li>
+        </ul>
+
+        <h2 id="code">Code</h2>
+        <ul>
+          <li><a href="https://github.com/mvazcar/MCVL" target="_blank" rel="noopener">MCVL</a> — A modern Python pipeline to process data from Spanish Social Security.</li>
+          <li><a href="https://github.com/mvazcar/deepHopenhayn" target="_blank" rel="noopener">deepHopenhayn</a> — Solving a Hopenhayn model with neural networks.</li>
+          <li><a href="https://github.com/mvazcar/FairModelJAX" target="_blank" rel="noopener">FairModelJAX</a> — A JAX port of the Fair Macro Model.</li>
+        </ul>
+      </main>
+
+    </div>
+  </div>
+
 </body>
 </html>
