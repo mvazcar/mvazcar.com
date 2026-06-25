@@ -42,21 +42,22 @@
     }
 
     *{box-sizing:border-box}
-    html{-webkit-text-size-adjust:100%}
+    /* Fluid base size: grows on bigger screens, capped for readability. Bump the 20px to go larger. */
+    html{-webkit-text-size-adjust:100%; font-size:clamp(16px, 15px + 0.3vw, 20px)}
     body{
       margin:0; background:var(--bg); color:var(--text);
-      font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Helvetica Neue",Arial,sans-serif;
+      font:1rem/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Helvetica Neue",Arial,sans-serif;
       font-weight:400;
     }
 
     /* ---------- Layout ---------- */
-    .wrapper{width:min(100% - 80px, 920px); margin:0 auto; padding:52px 0 0}
+    .wrapper{width:min(100% - 5rem, 58rem); margin:0 auto; padding:52px 0 0}
     .masthead{text-align:center}
     .masthead h1{margin:0 0 18px; font-size:1.9rem; font-weight:500; color:var(--heading); line-height:1.15; letter-spacing:.01em}
     .masthead::after{content:""; display:block; width:120px; height:1px; margin:18px auto 26px; background:var(--rule); border-radius:2px}
     /* Single column by default; auto-switches to two columns when a photo is present */
     .cols{display:block}
-    .right-side{min-width:0; max-width:620px; margin:0 auto; padding-bottom:50px}
+    .right-side{min-width:0; max-width:40rem; margin:0 auto; padding-bottom:50px}
     .cols:has(.photo){display:flex; gap:46px; align-items:flex-start}
     .cols:has(.photo) .left-side{flex:0 0 300px; width:300px}
     .cols:has(.photo) .right-side{flex:1 1 auto; max-width:560px; margin:0}
@@ -91,10 +92,10 @@
 
     hr.sep{border:0; height:1px; background:var(--rule); margin:24px 0}
 
-    h2{color:var(--h2); font-size:20px; font-weight:500; line-height:1.1; margin:28px 0 14px}
+    h2{color:var(--h2); font-size:1.25rem; font-weight:500; line-height:1.1; margin:28px 0 14px}
     .right-side ul{margin:0 0 18px; padding-left:0; list-style:none}
     .right-side li{margin:0 0 8px}
-    .medium-small{font-size:16px}
+    .medium-small{font-size:1rem}
 
     /* ---------- Responsive ---------- */
     @media (max-width:760px){
