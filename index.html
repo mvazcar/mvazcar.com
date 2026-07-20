@@ -8,141 +8,198 @@
   <meta name="author" content="Miguel Vázquez-Carrero">
   <meta name="google-site-verification" content="z3DUhXx2A8nm-WWSKP7PkQ0zFl4hOkdGQrjzsrWOwKM">
   <link rel="canonical" href="https://mvazcar.com/">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#efede8">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Miguel Vázquez-Carrero">
-  <meta property="og:description" content="PhD candidate in Economics at Universidad Carlos III de Madrid. Research areas include macro-finance and quantitative macroeconomics, with a particular interest in computational methods and heterogeneous-agent models.">
+  <meta property="og:description" content="PhD candidate in Economics at Universidad Carlos III de Madrid. Research areas include macro-finance and quantitative macroeconomics.">
   <meta property="og:url" content="https://mvazcar.com/">
-
-  <!-- No favicon (empty data URI also prevents the browser's default favicon.ico request) -->
   <link rel="icon" href="data:,">
-
-  <!--
-    ============================================================
-    Miguel Vázquez-Carrero — academic site
-    Plain, light, single static file: no header bar, no toggle,
-    no external CSS, no web fonts, no icon-font CDN, no trackers.
-    Loads instantly. Drop it on Netlify as-is.
-
-    TO PERSONALISE:
-      • Photo — replace the <div class="photo">…</div> in the sidebar with:
-                <img class="photo" src="photo.jpg" alt="Miguel Vázquez-Carrero">
-                (add photo.jpg next to this file; a portrait ~600px wide is ideal)
-      • Links under the photo — a ready-to-use snippet is commented out in the sidebar
-    ============================================================
-  -->
 
   <style>
     :root{
-      --bg:#ffffff; --text:#070000; --heading:#222; --h2:#393939;
-      --link:#223b8b; --link-hover:#112057; --border:#e5e5e5;
-      --muted:#777; --surface:#f4f4f4; --rule:#d4d4d4;
+      --page:#efede8;
+      --surface:#ffffff;
+      --text:#17191c;
+      --heading:#20242a;
+      --subheading:#3f464f;
+      --link:#174a8b;
+      --link-hover:#0f3566;
+      --rule:#ddd9d1;
+      --muted:#6c706f;
     }
 
     *{box-sizing:border-box}
-    /* Fluid base size: grows on bigger screens, capped for readability. Bump the 20px to go larger. */
-    html{-webkit-text-size-adjust:100%; font-size:clamp(16px, 15px + 0.3vw, 20px)}
+    html{-webkit-text-size-adjust:100%; font-size:clamp(15px, 14px + .2vw, 17px)}
     body{
-      margin:0; background:var(--bg); color:var(--text);
-      font:1rem/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Helvetica Neue",Arial,sans-serif;
-      font-weight:400;
+      min-height:100vh;
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.78), transparent 36rem),
+        var(--page);
+      color:var(--text);
+      font:1rem/1.58 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Helvetica Neue",Arial,sans-serif;
     }
 
-    /* ---------- Layout ---------- */
-    .wrapper{width:min(100% - 5rem, 58rem); margin:0 auto; padding:52px 0 0}
+    .wrapper{
+      width:min(calc(100% - 32px), 980px);
+      margin:32px auto;
+      padding:46px 54px 56px;
+      background:var(--surface);
+      border:1px solid rgba(77,70,57,.14);
+      border-radius:18px;
+      box-shadow:0 18px 48px rgba(42,37,28,.08);
+    }
+
     .masthead{text-align:center}
-    .masthead h1{margin:0 0 18px; font-size:1.9rem; font-weight:500; color:var(--heading); line-height:1.15; letter-spacing:.01em}
-    .masthead::after{content:""; display:block; width:120px; height:1px; margin:18px auto 26px; background:var(--rule); border-radius:2px}
-    /* Single column by default; auto-switches to two columns when a photo is present */
-    .cols{display:block}
-    .right-side{min-width:0; max-width:40rem; margin:0 auto; padding-bottom:50px}
-    .cols:has(.photo){display:flex; gap:46px; align-items:flex-start}
-    .cols:has(.photo) .left-side{flex:0 0 300px; width:300px}
-    .cols:has(.photo) .right-side{flex:1 1 auto; max-width:560px; margin:0}
+    .masthead h1{
+      margin:0;
+      color:var(--heading);
+      font-size:1.95rem;
+      font-weight:550;
+      line-height:1.15;
+      letter-spacing:.005em;
+    }
+    .masthead::after{
+      content:"";
+      display:block;
+      width:112px;
+      height:1px;
+      margin:20px auto 30px;
+      background:var(--rule);
+    }
 
-    /* ---------- Sidebar: photo ---------- */
+    .cols{
+      display:grid;
+      grid-template-columns:minmax(230px, 290px) minmax(0, 1fr);
+      gap:48px;
+      align-items:start;
+    }
+
     .photo{
-      width:100%; aspect-ratio:5/6; border:1px solid var(--border); border-radius:6px;
-      background:var(--surface); display:flex; flex-direction:column; align-items:center; justify-content:center;
-      gap:10px; color:var(--muted); text-align:center;
+      display:block;
+      width:100%;
+      height:auto;
+      aspect-ratio:1;
+      object-fit:cover;
+      background:#000;
+      border:1px solid #242424;
+      border-radius:12px;
+      box-shadow:0 12px 28px rgba(0,0,0,.12);
     }
-    .photo svg{width:62px; height:62px; opacity:.5}
-    .photo .hint{font-size:12px}
-    img.photo{display:block; height:auto; aspect-ratio:auto; object-fit:cover; background:var(--surface)}
 
-    /* Optional link buttons under the photo (used by the commented snippet in the sidebar) */
-    .contact-links{margin-top:20px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
-    .contact-links a{
-      display:inline-flex; align-items:center; justify-content:center; gap:.4ch;
-      min-width:44px; height:40px; padding:0 12px;
-      font-size:15px; font-weight:500; color:var(--link); text-decoration:none;
-      border:1px solid var(--border); border-radius:5px;
+    .social-links{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:18px;
     }
-    .contact-links a:hover{background:var(--surface); color:var(--link-hover)}
-    .contact-links svg{width:18px; height:18px; fill:currentColor; display:block}
+    .social-links a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+      color:var(--link);
+      background:var(--surface);
+      border:1px solid var(--rule);
+      border-radius:50%;
+      transition:background .15s ease, color .15s ease, transform .15s ease;
+    }
+    .social-links a:hover{
+      color:var(--link-hover);
+      background:#f5f3ef;
+      transform:translateY(-1px);
+    }
+    .social-links a:focus-visible{
+      outline:2px solid var(--link);
+      outline-offset:3px;
+    }
+    .social-links svg{width:20px; height:20px; fill:currentColor}
 
-    /* ---------- Content ---------- */
-    .right-side p{margin:0 0 16px}
+    .right-side{min-width:0}
+    .right-side p{margin:0 0 15px}
     a{color:var(--link); text-decoration:none}
     a:hover{color:var(--link-hover)}
     a:focus-visible{outline:2px solid var(--link); outline-offset:2px; border-radius:2px}
-    strong{font-weight:500; color:var(--heading)}
+    strong{font-weight:550; color:var(--heading)}
+    .muted{color:var(--muted)}
 
-    hr.sep{border:0; height:1px; background:var(--rule); margin:24px 0}
+    hr{
+      height:1px;
+      margin:26px 0;
+      background:var(--rule);
+      border:0;
+    }
 
-    h2{color:var(--h2); font-size:1.25rem; font-weight:500; line-height:1.1; margin:28px 0 14px}
-    h3{color:var(--h2); font-size:1rem; font-weight:500; line-height:1.1; margin:22px 0 10px}
+    h2{
+      margin:28px 0 14px;
+      color:var(--heading);
+      font-size:1.25rem;
+      font-weight:550;
+      line-height:1.2;
+    }
+    h3{
+      margin:22px 0 10px;
+      color:var(--subheading);
+      font-size:1.04rem;
+      font-weight:550;
+      line-height:1.25;
+    }
     h2 + h3{margin-top:0}
-    .right-side ul{margin:0 0 18px; padding-left:0; list-style:none}
-    .right-side li{margin:0 0 8px}
-    .medium-small{font-size:1rem}
+    ul{margin:0 0 18px; padding:0; list-style:none}
+    li{margin:0 0 8px}
 
-    /* ---------- Responsive ---------- */
     @media (max-width:760px){
-      .wrapper{width:min(100% - 40px, 920px); padding-top:40px}
-      .cols:has(.photo){flex-direction:column; gap:26px}
-      .cols:has(.photo) .left-side{flex:none; width:100%; max-width:300px; margin:0 auto}
-      .cols:has(.photo) .right-side{max-width:none}
+      body{background:var(--surface)}
+      .wrapper{
+        width:min(100% - 36px, 600px);
+        margin:0 auto;
+        padding:36px 0 48px;
+        border:0;
+        border-radius:0;
+        box-shadow:none;
+      }
+      .masthead::after{margin-bottom:26px}
+      .cols{grid-template-columns:1fr; gap:28px}
+      .left-side{width:min(100%, 300px); margin:0 auto}
     }
   </style>
 </head>
 <body>
-
   <div class="wrapper">
-
     <header class="masthead">
       <h1>Miguel Vázquez-Carrero</h1>
     </header>
 
     <div class="cols">
-
-      <!-- LEFT: photo (add your own links below it later) -->
       <aside class="left-side">
-        <!-- Photo goes here later:  <img class="photo" src="photo.jpg" alt="Miguel Vázquez-Carrero"> -->
+        <img class="photo" src="assets/photo.png" alt="Miguel Vázquez-Carrero">
 
-        <!-- Add your links here later. Uncomment and edit — they'll style as buttons automatically:
-        <div class="contact-links">
-          <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
-          <a href="https://github.com/mvazcar" target="_blank" rel="noopener">GitHub</a>
-          <a href="mailto:mvazcar@eco.uc3m.es">Email</a>
-        </div>
-        -->
+        <nav class="social-links" aria-label="Contact links">
+          <a href="https://github.com/mvazcar" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+          <a href="mailto:mvazcar@eco.uc3m.es" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+          </a>
+        </nav>
       </aside>
 
-      <!-- RIGHT: main content -->
       <main class="right-side">
         <p>I am a PhD candidate in Economics at Universidad Carlos III de Madrid.</p>
         <p>My research areas include macro-finance and quantitative macroeconomics, with a particular interest in computational methods and heterogeneous-agent models.</p>
         <p>I will be on the academic job market in <strong>2027–2028</strong>.</p>
         <p>You can contact me at <a href="mailto:mvazcar@eco.uc3m.es">mvazcar@eco.uc3m.es</a>.</p>
 
-        <hr class="sep">
+        <hr>
 
         <h2 id="work-in-progress">Work in Progress</h2>
         <ul>
-          <li>"From firm demographics to measured TFP" <span class="medium-small">with Andrés Erosa and Sevi Mora</span></li>
+          <li>
+            "From firm demographics to measured TFP"<br>
+            <span class="muted">with Andrés Erosa and Sevi Mora</span>
+          </li>
         </ul>
 
         <h2 id="code">Code</h2>
@@ -161,9 +218,7 @@
           <li><a href="https://github.com/mvazcar/firm-dynamics" target="_blank" rel="noopener">firm-dynamics</a> — Heterogeneous-firm dynamics models in MATLAB.</li>
         </ul>
       </main>
-
     </div>
   </div>
-
 </body>
 </html>
