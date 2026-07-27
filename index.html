@@ -145,6 +145,54 @@
     ul{margin:0 0 18px; padding:0; list-style:none}
     li{margin:0 0 8px}
 
+    .code-group + .code-group{margin-top:13px}
+    .code-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:5px 11px;
+      color:var(--link);
+      background:var(--surface);
+      border:1px solid var(--rule);
+      border-radius:5px;
+      font:inherit;
+      font-size:.88rem;
+      font-weight:550;
+      line-height:1.3;
+      cursor:pointer;
+      transition:background .15s ease, color .15s ease, border-color .15s ease;
+    }
+    .code-toggle:hover{
+      color:var(--link-hover);
+      background:#f6f6f6;
+      border-color:#c9c5bd;
+    }
+    .code-toggle:focus-visible{
+      outline:2px solid var(--link);
+      outline-offset:3px;
+    }
+    .code-toggle .arrow{
+      width:1ch;
+      font-weight:400;
+      text-align:center;
+    }
+    .code-panel{
+      margin-top:9px;
+      padding:12px 14px;
+      background:#f7f7f7;
+      border:1px solid var(--rule);
+      border-radius:6px;
+    }
+    .code-panel[hidden]{display:none}
+    .code-note{
+      margin:0 0 9px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .code-row{margin:0}
+    .code-row + .code-row{margin-top:7px}
+    .code-row a{font-weight:550}
+
     @media (max-width:760px){
       body{background:var(--surface)}
       .wrapper{
@@ -159,6 +207,7 @@
       .cols{grid-template-columns:1fr; gap:28px}
       .left-side{width:min(100%, 300px); margin:0 auto}
       .social-links{display:none}
+      .code-toggle{width:100%; justify-content:space-between; text-align:left}
     }
   </style>
 </head>
@@ -199,21 +248,57 @@
 
         <h2 id="code">Code</h2>
 
-        <h3 id="modern-data-pipelines-for-spanish-microdata">Modern Data Pipelines for Spanish Microdata</h3>
-        <ul>
-          <li><a href="https://github.com/mvazcar/MCVL" target="_blank" rel="noopener">MCVL</a> — Social Security and income-tax records.</li>
-          <li><a href="https://github.com/mvazcar/EFF" target="_blank" rel="noopener">EFF</a> — Survey of Household Finances.</li>
-          <li><a href="https://github.com/mvazcar/ECV" target="_blank" rel="noopener">ECV</a> — Survey of Income and Living Conditions.</li>
-          <li><a href="https://github.com/mvazcar/panel-de-hogares" target="_blank" rel="noopener">Panel de Hogares</a> — income tax, wealth, real estate and Social Security.</li>
-        </ul>
+        <div class="code-group">
+          <button class="code-toggle" type="button" aria-expanded="true" aria-controls="spanish-microdata-code">
+            <span>Modern Pipeline for Spanish Microdata</span>
+            <span class="arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="code-panel" id="spanish-microdata-code">
+            <p class="code-note">Python/Polars pipelines for reproducible, large-scale data processing.</p>
+            <p class="code-row">
+              <a href="https://github.com/mvazcar/MCVL" target="_blank" rel="noopener">Muestra Continua de Vidas Laborales</a>
+              -
+              <a href="https://github.com/mvazcar/panel-de-hogares" target="_blank" rel="noopener">Panel de Hogares</a>
+            </p>
+            <p class="code-row">
+              <a href="https://github.com/mvazcar/EFF" target="_blank" rel="noopener">Encuesta Financiera de las Familias</a>
+              -
+              <a href="https://github.com/mvazcar/ECV" target="_blank" rel="noopener">Encuesta de Condiciones de Vida</a>
+            </p>
+          </div>
+        </div>
 
-        <h3 id="other-code">Firm Dynamics</h3>
-        <ul>
-          <li><a href="https://github.com/mvazcar/deepHopenhayn" target="_blank" rel="noopener">deepHopenhayn</a> — Solving a Hopenhayn model with neural networks.</li>
-          <li><a href="https://github.com/mvazcar/firm-dynamics" target="_blank" rel="noopener">firm-dynamics</a> — Heterogeneous-firm dynamics models in MATLAB.</li>
-        </ul>
+        <div class="code-group">
+          <button class="code-toggle" type="button" aria-expanded="false" aria-controls="firm-dynamics-code">
+            <span>Firm Dynamics</span>
+            <span class="arrow" aria-hidden="true">▸</span>
+          </button>
+          <div class="code-panel" id="firm-dynamics-code" hidden>
+            <p class="code-row">
+              <a href="https://github.com/mvazcar/deepHopenhayn" target="_blank" rel="noopener">deepHopenhayn</a>
+              — A Hopenhayn model solved with neural networks.
+            </p>
+            <p class="code-row">
+              <a href="https://github.com/mvazcar/firm-dynamics" target="_blank" rel="noopener">firm-dynamics</a>
+              — Codes for classic firm dynamics models.
+            </p>
+          </div>
+        </div>
       </main>
     </div>
   </div>
+
+  <script>
+    document.querySelectorAll(".code-toggle").forEach(function(button){
+      button.addEventListener("click", function(){
+        var panel = document.getElementById(button.getAttribute("aria-controls"));
+        var expanded = button.getAttribute("aria-expanded") === "true";
+
+        button.setAttribute("aria-expanded", String(!expanded));
+        button.querySelector(".arrow").textContent = expanded ? "▸" : "▾";
+        panel.hidden = expanded;
+      });
+    });
+  </script>
 </body>
 </html>
