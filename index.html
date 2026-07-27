@@ -20,13 +20,15 @@
     :root{
       --page:#ffffff;
       --surface:#ffffff;
-      --text:#17191c;
+      --text:#292d33;
       --heading:#20242a;
       --subheading:#3f464f;
-      --link:#174a8b;
-      --link-hover:#0f3566;
-      --rule:#ddd9d1;
+      --link:#245b88;
+      --link-hover:#123e63;
+      --rule:#dddfe2;
       --muted:#6c706f;
+      --panel:#f7f7f7;
+      --steel:#bfc4ca;
     }
 
     *{box-sizing:border-box}
@@ -58,10 +60,10 @@
     .masthead::after{
       content:"";
       display:block;
-      width:112px;
+      width:72px;
       height:1px;
       margin:20px auto 30px;
-      background:var(--rule);
+      background:var(--steel);
     }
 
     .cols{
@@ -77,10 +79,10 @@
       height:auto;
       aspect-ratio:1;
       object-fit:cover;
-      background:#000;
-      border:1px solid #242424;
+      background:var(--heading);
+      border:1px solid var(--heading);
       border-radius:12px;
-      box-shadow:0 12px 28px rgba(0,0,0,.12);
+      box-shadow:0 11px 26px rgba(0,0,0,.12);
     }
 
     .social-links{
@@ -103,7 +105,8 @@
     }
     .social-links a:hover{
       color:var(--link-hover);
-      background:#f5f3ef;
+      background:var(--panel);
+      border-color:var(--steel);
       transform:translateY(-1px);
     }
     .social-links a:focus-visible{
@@ -164,8 +167,8 @@
     }
     .code-toggle:hover{
       color:var(--link-hover);
-      background:#f6f6f6;
-      border-color:#c9c5bd;
+      background:var(--panel);
+      border-color:var(--steel);
     }
     .code-toggle:focus-visible{
       outline:2px solid var(--link);
@@ -179,8 +182,8 @@
     .code-panel{
       margin-top:9px;
       padding:12px 14px;
-      background:#f7f7f7;
-      border:1px solid var(--rule);
+      background:var(--panel);
+      border:1px solid var(--steel);
       border-radius:6px;
     }
     .code-panel[hidden]{display:none}
@@ -250,7 +253,7 @@
 
         <div class="code-group">
           <button class="code-toggle" type="button" aria-expanded="true" aria-controls="spanish-microdata-code">
-            <span>Modern Pipeline for Spanish Microdata</span>
+            <span>Modern Pipelines for Spanish Microdata</span>
             <span class="arrow" aria-hidden="true">▾</span>
           </button>
           <div class="code-panel" id="spanish-microdata-code">
