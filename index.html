@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Miguel Vázquez-Carrero</title>
-  <meta name="description" content="Miguel Vázquez-Carrero — PhD candidate in Economics at Universidad Carlos III de Madrid. Research areas include macro-finance and quantitative macroeconomics, with a particular interest in computational methods and heterogeneous-agent models.">
+  <meta name="description" content="Miguel Vázquez-Carrero — PhD candidate in Economics at Universidad Carlos III de Madrid, working in macro-finance and quantitative macroeconomics.">
   <meta name="author" content="Miguel Vázquez-Carrero">
   <meta name="google-site-verification" content="z3DUhXx2A8nm-WWSKP7PkQ0zFl4hOkdGQrjzsrWOwKM">
   <link rel="canonical" href="https://mvazcar.com/">
@@ -12,296 +12,384 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Miguel Vázquez-Carrero">
-  <meta property="og:description" content="PhD candidate in Economics at Universidad Carlos III de Madrid. Research areas include macro-finance and quantitative macroeconomics.">
+  <meta property="og:description" content="PhD candidate in Economics at Universidad Carlos III de Madrid. Research in macro-finance and quantitative macroeconomics.">
   <meta property="og:url" content="https://mvazcar.com/">
+  <meta property="og:image" content="https://mvazcar.com/assets/photo.png">
+  <meta property="og:image:alt" content="Portrait of Miguel Vázquez-Carrero">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" href="data:,">
 
   <style>
-    :root{
-      --page:#ffffff;
-      --surface:#ffffff;
-      --text:#292d33;
-      --heading:#20242a;
-      --subheading:#3f464f;
-      --link:#245b88;
-      --link-hover:#123e63;
-      --rule:#dddfe2;
-      --muted:#6c706f;
-      --panel:#f7f7f7;
-      --steel:#bfc4ca;
+    :root {
+      color-scheme: light;
+      --page: #ffffff;
+      --surface: #ffffff;
+      --text: #30343a;
+      --heading: #1f2328;
+      --link: #225f91;
+      --link-hover: #123f65;
+      --muted: #686d73;
+      --rule: #d9dde1;
+      --panel: #f7f8f9;
+      --focus: #225f91;
     }
 
-    *{box-sizing:border-box}
-    html{-webkit-text-size-adjust:100%; font-size:clamp(15px, 14px + .2vw, 17px)}
-    body{
-      min-height:100vh;
-      margin:0;
-      background:var(--page);
-      color:var(--text);
-      font:1rem/1.58 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Helvetica Neue",Arial,sans-serif;
+    * {
+      box-sizing: border-box;
     }
 
-    .wrapper{
-      width:min(100% - 5rem, 58rem);
-      margin:0 auto;
-      padding:52px 0 50px;
-      background:var(--surface);
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
     }
 
-    .masthead{text-align:center}
-    .masthead h1{
-      margin:0;
-      color:var(--heading);
-      font-size:1.95rem;
-      font-weight:550;
-      line-height:1.15;
-      letter-spacing:.005em;
-    }
-    .masthead::after{
-      content:"";
-      display:block;
-      width:72px;
-      height:1px;
-      margin:20px auto 30px;
-      background:var(--steel);
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.48;
     }
 
-    .cols{
-      display:grid;
-      grid-template-columns:minmax(230px, 290px) minmax(0, 1fr);
-      gap:48px;
-      align-items:start;
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
     }
 
-    .photo{
-      display:block;
-      width:100%;
-      height:auto;
-      aspect-ratio:1;
-      object-fit:cover;
-      background:var(--heading);
-      border:1px solid var(--heading);
-      border-radius:12px;
-      box-shadow:0 11px 26px rgba(0,0,0,.12);
+    a:hover {
+      color: var(--link-hover);
     }
 
-    .social-links{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      margin-top:18px;
-    }
-    .social-links a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:40px;
-      height:40px;
-      color:var(--link);
-      background:var(--surface);
-      border:1px solid var(--rule);
-      border-radius:50%;
-      transition:background .15s ease, color .15s ease, transform .15s ease;
-    }
-    .social-links a:hover{
-      color:var(--link-hover);
-      background:var(--panel);
-      border-color:var(--steel);
-      transform:translateY(-1px);
-    }
-    .social-links a:focus-visible{
-      outline:2px solid var(--link);
-      outline-offset:3px;
-    }
-    .social-links svg{width:20px; height:20px; fill:currentColor}
-
-    .right-side{min-width:0}
-    .right-side p{margin:0 0 15px}
-    a{color:var(--link); text-decoration:none}
-    a:hover{color:var(--link-hover)}
-    a:focus-visible{outline:2px solid var(--link); outline-offset:2px; border-radius:2px}
-    strong{font-weight:550; color:var(--heading)}
-    .muted{color:var(--muted)}
-
-    hr{
-      height:1px;
-      margin:26px 0;
-      background:var(--rule);
-      border:0;
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 2px;
     }
 
-    h2{
-      margin:28px 0 14px;
-      color:var(--heading);
-      font-size:1.25rem;
-      font-weight:550;
-      line-height:1.2;
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 10;
+      padding: 7px 10px;
+      color: #fff;
+      background: var(--heading);
+      transform: translateY(-150%);
     }
-    h3{
-      margin:22px 0 10px;
-      color:var(--subheading);
-      font-size:1.04rem;
-      font-weight:550;
-      line-height:1.25;
-    }
-    h2 + h3{margin-top:0}
-    ul{margin:0 0 18px; padding:0; list-style:none}
-    li{margin:0 0 8px}
 
-    .code-group + .code-group{margin-top:13px}
-    .code-toggle{
-      display:inline-flex;
-      align-items:center;
-      gap:7px;
-      padding:5px 11px;
-      color:var(--link);
-      background:var(--surface);
-      border:1px solid var(--rule);
-      border-radius:5px;
-      font:inherit;
-      font-size:.88rem;
-      font-weight:550;
-      line-height:1.3;
-      cursor:pointer;
-      transition:background .15s ease, color .15s ease, border-color .15s ease;
+    .skip-link:focus {
+      transform: translateY(0);
     }
-    .code-toggle:hover{
-      color:var(--link-hover);
-      background:var(--panel);
-      border-color:var(--steel);
-    }
-    .code-toggle:focus-visible{
-      outline:2px solid var(--link);
-      outline-offset:3px;
-    }
-    .code-toggle .arrow{
-      width:1ch;
-      font-weight:400;
-      text-align:center;
-    }
-    .code-panel{
-      margin-top:9px;
-      padding:12px 14px;
-      background:var(--panel);
-      border:1px solid var(--steel);
-      border-radius:6px;
-    }
-    .code-panel[hidden]{display:none}
-    .code-note{
-      margin:0 0 9px;
-      color:var(--muted);
-      font-size:.9rem;
-    }
-    .code-row{margin:0}
-    .code-row + .code-row{margin-top:7px}
-    .code-row a{font-weight:550}
 
-    @media (max-width:760px){
-      body{background:var(--surface)}
-      .wrapper{
-        width:min(100% - 36px, 600px);
-        margin:0 auto;
-        padding:36px 0 48px;
-        border:0;
-        border-radius:0;
-        box-shadow:none;
+    .site {
+      width: min(100% - 40px, 880px);
+      margin: 0 auto;
+      padding: 28px 0 24px;
+    }
+
+    .site-header {
+      margin-bottom: 18px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .site-title {
+      margin: 0;
+      color: var(--heading);
+      font-size: clamp(1.65rem, 3vw, 2rem);
+      font-weight: 650;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 200px;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .profile-aside {
+      justify-self: end;
+    }
+
+    .portrait {
+      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      background: #050505;
+      border: 1px solid #25282c;
+      border-radius: 6px;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .portrait-links {
+      display: flex;
+      justify-content: center;
+      width: 200px;
+      gap: 7px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .portrait-links a {
+      text-decoration: none;
+    }
+
+    .intro p {
+      margin: 0 0 9px;
+    }
+
+    .role {
+      color: var(--heading);
+      font-size: 1.06rem;
+      line-height: 1.35;
+    }
+
+    .role strong {
+      font-weight: 650;
+    }
+
+    .affiliation {
+      color: var(--muted);
+    }
+
+    .research-fields {
+      max-width: 57ch;
+    }
+
+    .job-market {
+      color: var(--heading);
+    }
+
+    .current-work {
+      scroll-margin-top: 18px;
+      margin-top: 14px;
+      padding-top: 13px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-label {
+      margin: 0 0 3px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 650;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .current-work h2 {
+      margin: 0 0 3px;
+      color: var(--heading);
+      font-size: 1.22rem;
+      font-weight: 650;
+      line-height: 1.28;
+    }
+
+    .coauthors {
+      color: var(--muted);
+    }
+
+    .content-section {
+      width: calc(100% - 242px);
+      scroll-margin-top: 18px;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .content-section > h2 {
+      margin: 0 0 4px;
+      color: var(--heading);
+      font-size: 1.3rem;
+      font-weight: 650;
+      line-height: 1.2;
+    }
+
+    .section-intro {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    details.project {
+      margin-bottom: 9px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+    }
+
+    details.project[open] {
+      background: var(--panel);
+    }
+
+    details.project summary {
+      padding: 9px 12px;
+      color: var(--heading);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .project-body {
+      padding: 0 12px 11px 29px;
+    }
+
+    .project-body p {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .project-links {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .project-links li + li {
+      margin-top: 3px;
+    }
+
+    .contact {
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-end;
+      gap: 16px;
+      margin-top: 22px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .contact p {
+      margin: 0;
+    }
+
+    @media (max-width: 680px) {
+      .site {
+        width: min(100% - 32px, 540px);
+        padding-top: 22px;
       }
-      .masthead::after{margin-bottom:26px}
-      .cols{grid-template-columns:1fr; gap:28px}
-      .left-side{width:min(100%, 300px); margin:0 auto}
-      .social-links{display:none}
-      .code-toggle{width:100%; justify-content:space-between; text-align:left}
+
+      .site-header {
+        margin-bottom: 20px;
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .profile-aside {
+        justify-self: start;
+      }
+
+      .portrait {
+        width: 150px;
+        height: 150px;
+      }
+
+      .portrait-links {
+        width: 150px;
+      }
+
+      .current-work {
+        margin-top: 13px;
+      }
+
+      .content-section {
+        width: 100%;
+        margin-top: 23px;
+      }
+
+      .contact {
+        display: block;
+      }
+
+      .contact p + p {
+        margin-top: 4px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <header class="masthead">
-      <h1>Miguel Vázquez-Carrero</h1>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="site">
+    <header class="site-header">
+      <h1 class="site-title">Miguel Vázquez-Carrero</h1>
     </header>
 
-    <div class="cols">
-      <aside class="left-side">
-        <img class="photo" src="assets/photo.png" alt="Miguel Vázquez-Carrero">
+    <main id="main-content">
+      <div class="profile-grid">
+        <div class="intro">
+          <p class="role"><strong>PhD candidate in Economics</strong><br><span class="affiliation">Universidad Carlos III de Madrid</span></p>
 
-        <nav class="social-links" aria-label="Contact links">
-          <a href="https://github.com/mvazcar" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          </a>
-          <a href="mailto:mvazcar@eco.uc3m.es" aria-label="Email">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
-          </a>
-        </nav>
-      </aside>
+          <p class="research-fields">I work on macro-finance and quantitative macroeconomics using computational methods and heterogeneous-agent models.</p>
 
-      <main class="right-side">
-        <p>I am a PhD candidate in Economics at Universidad Carlos III de Madrid, working in macro-finance and quantitative macroeconomics. My research uses computational methods and heterogeneous-agent models.</p>
-        <p>I will be on the academic job market in <strong>2027–2028</strong>.</p>
-        <p>You can contact me at <a href="mailto:mvazcar@eco.uc3m.es">mvazcar@eco.uc3m.es</a>.</p>
+          <p class="job-market">I will be on the academic job market in <strong>2027–2028</strong>.</p>
 
-        <hr>
-
-        <h2 id="work-in-progress">Work in Progress</h2>
-        <ul>
-          <li>
-            "From firm demographics to measured TFP"<br>
-            <span class="muted">with Andrés Erosa and Sevi Mora</span>
-          </li>
-        </ul>
-
-        <h2 id="code">Code</h2>
-
-        <div class="code-group">
-          <button class="code-toggle" type="button" aria-expanded="true" aria-controls="spanish-microdata-code">
-            <span>Modern Pipelines for Spanish Microdata</span>
-            <span class="arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="code-panel" id="spanish-microdata-code">
-            <p class="code-note">Python/Polars pipelines for reproducible, large-scale data processing.</p>
-            <p class="code-row">
-              <a href="https://github.com/mvazcar/MCVL" target="_blank" rel="noopener">Muestra Continua de Vidas Laborales</a>
-              -
-              <a href="https://github.com/mvazcar/panel-de-hogares" target="_blank" rel="noopener">Panel de Hogares</a>
-            </p>
-            <p class="code-row">
-              <a href="https://github.com/mvazcar/EFF" target="_blank" rel="noopener">Encuesta Financiera de las Familias</a>
-              -
-              <a href="https://github.com/mvazcar/ECV" target="_blank" rel="noopener">Encuesta de Condiciones de Vida</a>
-            </p>
-          </div>
+          <section class="current-work" id="research" aria-labelledby="current-work-title">
+            <p class="section-label">Current research</p>
+            <h2 id="current-work-title">From firm demographics to measured TFP</h2>
+            <p class="coauthors">with Andrés Erosa and Sevi Mora</p>
+          </section>
         </div>
 
-        <div class="code-group">
-          <button class="code-toggle" type="button" aria-expanded="false" aria-controls="firm-dynamics-code">
-            <span>Firm Dynamics</span>
-            <span class="arrow" aria-hidden="true">▸</span>
-          </button>
-          <div class="code-panel" id="firm-dynamics-code" hidden>
-            <p class="code-row">
-              <a href="https://github.com/mvazcar/deepHopenhayn" target="_blank" rel="noopener">deepHopenhayn</a>
-              — A Hopenhayn model solved with neural networks.
-            </p>
-            <p class="code-row">
-              <a href="https://github.com/mvazcar/firm-dynamics" target="_blank" rel="noopener">firm-dynamics</a>
-              — Codes for classic firm dynamics models.
-            </p>
+        <aside class="profile-aside" aria-label="Profile">
+          <img class="portrait" src="assets/photo.png" alt="Miguel Vázquez-Carrero" width="385" height="385">
+          <div class="portrait-links">
+            <a href="mailto:mvazcar@eco.uc3m.es">Email</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://github.com/mvazcar" rel="me">GitHub</a>
           </div>
-        </div>
-      </main>
-    </div>
+        </aside>
+      </div>
+
+      <section class="content-section" id="code" aria-labelledby="code-title">
+        <h2 id="code-title">Code</h2>
+        <p class="section-intro">Selected open-source research tools and model implementations.</p>
+
+        <details class="project">
+          <summary>Modern Pipelines for Spanish Microdata</summary>
+          <div class="project-body">
+            <p>Python/Polars pipelines for reproducible, large-scale data processing.</p>
+            <ul class="project-links">
+              <li><a href="https://github.com/mvazcar/MCVL">Muestra Continua de Vidas Laborales</a></li>
+              <li><a href="https://github.com/mvazcar/panel-de-hogares">Panel de Hogares</a></li>
+              <li><a href="https://github.com/mvazcar/EFF">Encuesta Financiera de las Familias</a></li>
+              <li><a href="https://github.com/mvazcar/ECV">Encuesta de Condiciones de Vida</a></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="project">
+          <summary>Firm Dynamics</summary>
+          <div class="project-body">
+            <ul class="project-links">
+              <li><a href="https://github.com/mvazcar/deepHopenhayn">deepHopenhayn</a> — A Hopenhayn model solved with neural networks.</li>
+              <li><a href="https://github.com/mvazcar/firm-dynamics">firm-dynamics</a> — Codes for classic firm dynamics models.</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <footer class="contact" id="contact">
+      <p>© 2026 Miguel Vázquez-Carrero</p>
+    </footer>
   </div>
-
-  <script>
-    document.querySelectorAll(".code-toggle").forEach(function(button){
-      button.addEventListener("click", function(){
-        var panel = document.getElementById(button.getAttribute("aria-controls"));
-        var expanded = button.getAttribute("aria-expanded") === "true";
-
-        button.setAttribute("aria-expanded", String(!expanded));
-        button.querySelector(".arrow").textContent = expanded ? "▸" : "▾";
-        panel.hidden = expanded;
-      });
-    });
-  </script>
 </body>
 </html>
