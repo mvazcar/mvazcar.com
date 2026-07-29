@@ -24,15 +24,13 @@
     :root {
       color-scheme: light;
       --page: #ffffff;
-      --surface: #ffffff;
-      --text: #30343a;
-      --heading: #1f2328;
-      --link: #225f91;
-      --link-hover: #123f65;
-      --muted: #686d73;
-      --rule: #d9dde1;
-      --panel: #f7f8f9;
-      --focus: #225f91;
+      --text: #444444;
+      --heading: #222222;
+      --link: #3273dc;
+      --link-hover: #245bb0;
+      --muted: #666666;
+      --rule: #c8c8c8;
+      --focus: #3273dc;
     }
 
     * {
@@ -49,19 +47,19 @@
       margin: 0;
       background: var(--page);
       color: var(--text);
-      font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.48;
+      font-family: Verdana, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
     }
 
     a {
       color: var(--link);
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.16em;
+      text-decoration: none;
     }
 
     a:hover {
       color: var(--link-hover);
+      text-decoration: underline;
     }
 
     a:focus-visible,
@@ -87,30 +85,27 @@
     }
 
     .site {
-      width: min(100% - 40px, 880px);
+      width: min(100% - 40px, 820px);
       margin: 0 auto;
-      padding: 28px 0 24px;
+      padding: 20px 0 22px;
     }
 
     .site-header {
-      margin-bottom: 18px;
-      padding-bottom: 11px;
-      border-bottom: 1px solid var(--rule);
+      margin-bottom: 20px;
     }
 
     .site-title {
       margin: 0;
       color: var(--heading);
-      font-size: clamp(1.65rem, 3vw, 2rem);
-      font-weight: 650;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      font-size: clamp(1.55rem, 3vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.2;
     }
 
     .profile-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 200px;
-      gap: 42px;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 36px;
       align-items: start;
     }
 
@@ -120,23 +115,22 @@
 
     .portrait {
       display: block;
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 180px;
       object-fit: cover;
       background: #050505;
-      border: 1px solid #25282c;
-      border-radius: 6px;
-      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
     }
 
     .portrait-links {
       display: flex;
       justify-content: center;
-      width: 200px;
+      width: 180px;
       gap: 7px;
-      margin-top: 10px;
+      margin-top: 8px;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.86rem;
     }
 
     .portrait-links a {
@@ -144,17 +138,17 @@
     }
 
     .intro p {
-      margin: 0 0 9px;
+      margin: 0 0 10px;
     }
 
     .role {
       color: var(--heading);
-      font-size: 1.06rem;
-      line-height: 1.35;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     .role strong {
-      font-weight: 650;
+      font-weight: 700;
     }
 
     .affiliation {
@@ -171,26 +165,23 @@
 
     .current-work {
       scroll-margin-top: 18px;
-      margin-top: 14px;
-      padding-top: 13px;
-      border-top: 1px solid var(--rule);
+      margin-top: 18px;
     }
 
     .section-label {
-      margin: 0 0 3px;
-      color: var(--muted);
-      font-size: 0.75rem;
-      font-weight: 650;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
+      margin: 0 0 7px;
+      color: var(--heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.25;
     }
 
-    .current-work h2 {
+    .current-work h3 {
       margin: 0 0 3px;
       color: var(--heading);
-      font-size: 1.22rem;
-      font-weight: 650;
-      line-height: 1.28;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.35;
     }
 
     .coauthors {
@@ -198,53 +189,50 @@
     }
 
     .content-section {
-      width: calc(100% - 242px);
+      width: calc(100% - 216px);
       scroll-margin-top: 18px;
-      margin-top: 24px;
-      padding-top: 16px;
+      margin-top: 22px;
+      padding-top: 18px;
       border-top: 1px solid var(--rule);
     }
 
     .content-section > h2 {
       margin: 0 0 4px;
       color: var(--heading);
-      font-size: 1.3rem;
-      font-weight: 650;
-      line-height: 1.2;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.25;
     }
 
     .section-intro {
       margin: 0 0 12px;
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.9rem;
     }
 
     details.project {
-      margin-bottom: 9px;
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-    }
-
-    details.project[open] {
-      background: var(--panel);
+      margin: 0 0 11px;
     }
 
     details.project summary {
-      padding: 9px 12px;
+      padding: 0;
       color: var(--heading);
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
     }
 
+    details.project summary:hover {
+      text-decoration: underline;
+    }
+
     .project-body {
-      padding: 0 12px 11px 29px;
+      padding: 8px 0 2px 20px;
     }
 
     .project-body p {
       margin: 0 0 7px;
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.9rem;
     }
 
     .project-links {
@@ -259,11 +247,11 @@
     @media (max-width: 680px) {
       .site {
         width: min(100% - 32px, 540px);
-        padding-top: 22px;
+        padding-top: 18px;
       }
 
       .site-header {
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
 
       .profile-grid {
@@ -285,7 +273,7 @@
       }
 
       .current-work {
-        margin-top: 13px;
+        margin-top: 16px;
       }
 
       .content-section {
@@ -315,13 +303,13 @@
         <div class="intro">
           <p class="role"><strong>PhD candidate in Economics</strong><br><span class="affiliation">Universidad Carlos III de Madrid</span></p>
 
-          <p class="research-fields">I am a macroeconomist studying how firm dynamics and competition shape productivity growth and employment. I combine empirical microdata analysis with quantitative models of heterogeneous firms to connect firm-level behavior with aggregate outcomes.</p>
+          <p class="research-fields">I am a macroeconomist studying how firm dynamics and competition shape productivity growth and employment. I combine empirical microdata analysis with structural macroeconomic modeling to connect micro-level behavior with aggregate outcomes.</p>
 
           <p class="job-market">I will be on the academic job market in <strong>2027–2028</strong>.</p>
 
-          <section class="current-work" id="research" aria-labelledby="current-work-title">
-            <p class="section-label">Current research</p>
-            <h2 id="current-work-title">From firm demographics to measured TFP</h2>
+          <section class="current-work" id="research" aria-labelledby="research-title">
+            <h2 class="section-label" id="research-title">Current research</h2>
+            <h3 id="current-work-title">From firm demographics to measured TFP</h3>
             <p class="coauthors">with Andrés Erosa and Sevi Mora</p>
           </section>
         </div>
