@@ -17,6 +17,7 @@
   <meta property="og:image" content="https://mvazcar.com/assets/photo.png">
   <meta property="og:image:alt" content="Portrait of Miguel Vázquez-Carrero">
   <meta name="twitter:card" content="summary">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable profile">
   <link rel="icon" href="data:,">
 
   <style>
@@ -255,22 +256,6 @@
       margin-top: 3px;
     }
 
-    .contact {
-      display: flex;
-      align-items: baseline;
-      justify-content: flex-end;
-      gap: 16px;
-      margin-top: 22px;
-      padding-top: 14px;
-      border-top: 1px solid var(--rule);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .contact p {
-      margin: 0;
-    }
-
     @media (max-width: 680px) {
       .site {
         width: min(100% - 32px, 540px);
@@ -308,13 +293,6 @@
         margin-top: 23px;
       }
 
-      .contact {
-        display: block;
-      }
-
-      .contact p + p {
-        margin-top: 4px;
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -387,9 +365,6 @@
       </section>
     </main>
 
-    <footer class="contact" id="contact">
-      <p>© 2026 Miguel Vázquez-Carrero</p>
-    </footer>
   </div>
 </body>
 </html>

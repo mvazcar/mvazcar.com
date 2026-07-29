@@ -1,0 +1,63 @@
+# Miguel Vázquez-Carrero
+
+> PhD candidate in Economics at Universidad Carlos III de Madrid
+> Academic job market: 2027–2028
+> Website: https://mvazcar.com/
+
+## Overview
+
+Miguel Vázquez-Carrero is a macroeconomist studying how firm dynamics and
+competition shape productivity growth and employment. His research combines
+empirical microdata analysis with quantitative models of heterogeneous firms to
+connect firm-level behavior with aggregate outcomes.
+
+## Research Interests
+
+- Firm dynamics
+- Competition
+- Productivity growth
+- Employment and labor-market outcomes
+- Quantitative macroeconomics
+
+## Current Research
+
+### From firm demographics to measured TFP
+
+With Andrés Erosa and Sevi Mora. Work in progress.
+
+## Research Methods
+
+- Empirical analysis of microdata
+- Quantitative models of heterogeneous firms
+- Computational methods
+
+## Open-Source Code
+
+### Modern Pipelines for Spanish Microdata
+
+Python and Polars pipelines for reproducible, large-scale data processing:
+
+- Muestra Continua de Vidas Laborales: https://github.com/mvazcar/MCVL
+- Panel de Hogares: https://github.com/mvazcar/panel-de-hogares
+- Encuesta Financiera de las Familias: https://github.com/mvazcar/EFF
+- Encuesta de Condiciones de Vida: https://github.com/mvazcar/ECV
+
+### Firm Dynamics
+
+- deepHopenhayn: https://github.com/mvazcar/deepHopenhayn
+  A Hopenhayn model solved with neural networks.
+- firm-dynamics: https://github.com/mvazcar/firm-dynamics
+  Code for classic firm-dynamics models.
+
+## Contact
+
+- Email: mvazcar@eco.uc3m.es
+- Website: https://mvazcar.com/
+- GitHub: https://github.com/mvazcar
+
+## Scope
+
+This file describes work publicly listed on the website. It is not a complete
+publication record.
+
+Last updated: 2026-07-30
