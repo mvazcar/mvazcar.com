@@ -6,10 +6,10 @@
 
 ## Overview
 
-Miguel Vázquez-Carrero is a macroeconomist studying how firm dynamics and
-competition shape productivity growth and employment. His research combines
-empirical microdata analysis with structural macroeconomic modeling to connect
-micro-level behavior with aggregate outcomes.
+Miguel Vázquez-Carrero is a macroeconomist interested in how firms grow and
+compete, and how this shapes productivity and employment. His main work
+combines structural models with microdata. He also works on policy evaluation
+using experimental and quasi-experimental methods.
 
 ## Research Interests
 

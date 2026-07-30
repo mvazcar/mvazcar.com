@@ -1,6 +1,8 @@
 # Miguel Vázquez-Carrero
 
-Minimal static academic website for `mvazcar.com`, prepared for Netlify.
+Minimal static academic website for `mvazcar.com`, based on
+[Hugo Bear Blog](https://github.com/janraasch/hugo-bearblog) and prepared for
+Netlify.
 
 ## Local preview
 
@@ -16,3 +18,5 @@ Then open <http://localhost:1314/>.
 
 - Build command: leave empty
 - Publish directory: `.`
+
+Third-party licensing is documented in `THIRD_PARTY_LICENSES.md`.
