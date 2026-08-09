@@ -49,6 +49,13 @@ Python and Polars pipelines for reproducible, large-scale data processing:
 - firm-dynamics: https://github.com/mvazcar/firm-dynamics
   Code for classic firm-dynamics models.
 
+### Visualizations
+
+- Labor underutilization in Spain:
+  https://mvazcar.com/visual/spain-labor-underutilization/
+  Interactive quarterly and annual measures constructed from EPA public
+  microdata.
+
 ## Contact
 
 - Email: mvazcar@eco.uc3m.es

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive U1-U6 labor-underutilization measures for Spain from EPA microdata.">
+  <title>Labor underutilization in Spain</title>
+  <link rel="canonical" href="https://mvazcar.com/visual/spain-labor-underutilization/">
+  <meta property="og:title" content="Labor underutilization in Spain">
+  <meta property="og:description" content="Interactive U1-U6 measures constructed from EPA public microdata.">
+  <meta property="og:url" content="https://mvazcar.com/visual/spain-labor-underutilization/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdn.plot.ly/plotly-3.0.1.min.js" defer></script>
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-name" href="/">Miguel Vázquez-Carrero</a>
+    <nav aria-label="Project links">
+      <a href="/">Home</a>
+      <a href="https://github.com/mvazcar/spain-labor-underutilization/blob/main/METHOD.md">Method</a>
+      <a href="https://github.com/mvazcar/spain-labor-underutilization">Source code</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Alternative measures of labor underutilization</h1>
+    <p class="subtitle">Spain · EPA public microdata · automatically reproducible</p>
+
+    <section class="controls" aria-label="Chart controls">
+      <fieldset>
+        <legend>Definition</legend>
+        <div class="button-group" id="family-control">
+          <button type="button" data-value="felgueroso" aria-pressed="true">Felgueroso/Fedea U3–U6</button>
+          <button type="button" data-value="bls" aria-pressed="false">BLS-style U1–U6</button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Frequency</legend>
+        <div class="button-group" id="frequency-control">
+          <button type="button" data-value="quarterly" aria-pressed="true">Quarterly</button>
+          <button type="button" data-value="annual" aria-pressed="false">Annual</button>
+        </div>
+      </fieldset>
+    </section>
+
+    <section aria-labelledby="chart-title">
+      <h2 id="chart-title" class="sr-only">Labor-underutilization time series</h2>
+      <p id="latest-values" class="latest-values" aria-live="polite"></p>
+      <p id="plot-title" class="plot-title"></p>
+      <div id="chart" role="img" aria-label="Interactive labor-underutilization time-series chart"></div>
+      <p id="chart-status" class="status" aria-live="polite"></p>
+      <div class="chart-links">
+        <a id="download-link" href="data/derived/felgueroso_quarterly.csv" download>Download displayed CSV</a>
+        <a href="https://github.com/mvazcar/spain-labor-underutilization/blob/main/FELGUEROSO_COMPARISON.md">Replication audit</a>
+      </div>
+    </section>
+
+    <section class="notes" aria-label="Chart documentation">
+      <div>
+        <h2>Construction</h2>
+        <p id="construction-note"></p>
+      </div>
+      <div>
+        <h2>Interpretation</h2>
+        <p>U3 is the official unemployment rate. U4–U6 progressively include forms of labor underutilization excluded from U3; they are broader indicators, not corrections to an incorrectly measured unemployment rate.</p>
+      </div>
+      <div>
+        <h2>Source and limitations</h2>
+        <p>Own calculations from INE EPA public microdata. The dashed line marks the EPA-2021 redesign and population-weight change, not an economic event. Public age is top-coded at 65+, so the documented 16–74 scope cannot be imposed exactly.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Method adapted from <a href="https://nadaesgratis.es/felgueroso/subempleo-y-precariedad-indicadores-para-la-recuperaci%C3%B3n">Florentino Felgueroso</a> and <a href="https://laboral.fedea.net/docs/OTMT/2023/OTMT_notas_tecnicas_may23.pdf">Fedea Methodological Note 3</a>. Primary data: <a href="https://www.ine.es/">INE</a>.</p>
+  </footer>
+</body>
+</html>
