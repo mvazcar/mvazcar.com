@@ -47,9 +47,12 @@ const CONSTRUCTION = {
   bls: "This stricter BLS-style mapping reports U1 and U4–U6 as transparent estimates or proxies wherever public EPA variables cannot reproduce a BLS screen exactly.",
 };
 
+const LEVEL_INTERPRETATION = "U3 is the official unemployment rate. U4–U6 progressively include forms of labor underutilization excluded from U3; they are broader indicators, not corrections to an incorrectly measured unemployment rate.";
+
 const state = {
   family: new URLSearchParams(window.location.search).get("family") || "felgueroso",
   frequency: new URLSearchParams(window.location.search).get("frequency") || "quarterly",
+  change: new URLSearchParams(window.location.search).get("change") || "level",
 };
 
 function parseCsv(text) {
@@ -76,17 +79,59 @@ function displayPeriod(row) {
   return row.period;
 }
 
+function changeLag() {
+  if (state.change === "level") return 0;
+  if (state.change === "qoq") return 1;
+  return state.frequency === "quarterly" ? 4 : 1;
+}
+
+function seriesValues(rows, series) {
+  const values = rows.map((row) => number(row[series]));
+  const lag = changeLag();
+  if (lag === 0) return values;
+
+  return values.map((value, index) => {
+    const previous = values[index - lag];
+    if (value === null || previous === null || previous === undefined) return null;
+    if (state.frequency === "annual" && !completeYear(rows[index])) return null;
+    return value - previous;
+  });
+}
+
+function formatValue(value) {
+  if (state.change === "level") return `${value.toFixed(2)}%`;
+  const normalized = Math.abs(value) < 0.0005 ? 0 : value;
+  return `${normalized >= 0 ? "+" : ""}${normalized.toFixed(2)} pp`;
+}
+
+function changeDescription() {
+  if (state.change === "level") return "";
+  return state.change === "qoq" ? "quarter-on-quarter change" : "year-on-year change";
+}
+
+function interpretationText() {
+  if (state.change === "level") return LEVEL_INTERPRETATION;
+  const comparison = state.change === "qoq"
+    ? "Quarter-on-quarter compares adjacent quarters."
+    : state.frequency === "quarterly"
+      ? "Year-on-year compares each quarter with the same quarter one year earlier."
+      : "Year-on-year compares adjacent complete calendar years; incomplete YTD years are omitted.";
+  return `${LEVEL_INTERPRETATION} Changes are arithmetic differences in percentage points, not percentage growth rates. ${comparison}`;
+}
+
 function trace(series, rows) {
   return {
     x: rows.map(displayPeriod),
-    y: rows.map((row) => number(row[series])),
+    y: seriesValues(rows, series),
     customdata: rows.map((row) => row.period),
     name: LABELS[state.family][series],
     mode: "lines",
     connectgaps: false,
     line: {color: COLORS[series], width: 3.2},
     legendgroup: series,
-    hovertemplate: "%{y:.2f}%<extra></extra>",
+    hovertemplate: state.change === "level"
+      ? "%{y:.2f}%<extra></extra>"
+      : "%{y:+.2f} pp<extra></extra>",
   };
 }
 
@@ -115,27 +160,30 @@ function u1Band(rows) {
   return [lower, upper];
 }
 
-function tickSettings(rows) {
+function annualTickSettings(rows) {
   const periods = rows.map(displayPeriod);
-  const step = state.frequency === "quarterly" ? 4 : 2;
-  const indices = periods.map((_, index) => index).filter((index) => index % step === 0);
+  const indices = periods.map((_, index) => index).filter((index) => index % 2 === 0);
   if (indices.at(-1) !== periods.length - 1) indices.push(periods.length - 1);
   return {
     tickvals: indices.map((index) => periods[index]),
-    ticktext: indices.map((index) => {
-      const period = periods[index];
-      return state.frequency === "quarterly" && period.endsWith("Q1")
-        ? period.slice(0, 4)
-        : period;
-    }),
+    ticktext: indices.map((index) => periods[index]),
   };
 }
 
 function latestText(rows) {
-  const row = rows.at(-1);
+  const valuesBySeries = Object.fromEntries(
+    SERIES[state.family].map((series) => [series, seriesValues(rows, series)]),
+  );
+  let index = rows.length - 1;
+  while (index >= 0 && SERIES[state.family].every((series) => valuesBySeries[series][index] === null)) {
+    index -= 1;
+  }
+  if (index < 0) return "No comparable observation";
+
+  const row = rows[index];
   const values = SERIES[state.family]
-    .filter((series) => number(row[series]) !== null)
-    .map((series) => `${series.toUpperCase()} ${number(row[series]).toFixed(2)}%`)
+    .filter((series) => valuesBySeries[series][index] !== null)
+    .map((series) => `${series.toUpperCase()} ${formatValue(valuesBySeries[series][index])}`)
     .join(" · ");
   return `${displayPeriod(row)} · ${values}`;
 }
@@ -150,7 +198,7 @@ async function draw() {
     if (!response.ok) throw new Error(`Could not load ${path}`);
     const rows = parseCsv(await response.text());
     const traces = [];
-    if (state.family === "bls") traces.push(...u1Band(rows));
+    if (state.family === "bls" && state.change === "level") traces.push(...u1Band(rows));
     traces.push(...SERIES[state.family].map((series) => trace(series, rows)));
 
     const periods = rows.map(displayPeriod);
@@ -158,13 +206,32 @@ async function draw() {
     const breakPeriod = state.frequency === "quarterly"
       ? "2021-Q1"
       : periods.indexOf("2021");
-    const ticks = tickSettings(rows);
+    const ticks = state.frequency === "annual" ? annualTickSettings(rows) : null;
     const title = state.family === "felgueroso"
       ? "Felgueroso-style labor-underutilization measures"
       : "BLS-style measures of labor underutilization";
 
-    const chartTitle = `${title} — Spain (${state.frequency})`;
+    const view = changeDescription();
+    const chartTitle = `${title} — Spain (${state.frequency}${view ? `, ${view}` : ""})`;
     document.getElementById("plot-title").textContent = chartTitle;
+
+    const xaxis = {
+      type: "category",
+      categoryorder: "array",
+      categoryarray: periods,
+      tickangle: -55,
+      showgrid: true,
+      gridcolor: "#d9d9d9",
+      zeroline: false,
+      fixedrange: false,
+    };
+    if (ticks) {
+      Object.assign(xaxis, {tickmode: "array", tickvals: ticks.tickvals, ticktext: ticks.ticktext});
+    } else {
+      Object.assign(xaxis, {tickmode: "auto", nticks: 24});
+    }
+
+    const showingChanges = state.change !== "level";
 
     const layout = {
       paper_bgcolor: "#ffffff",
@@ -173,25 +240,16 @@ async function draw() {
       margin: {l: 68, r: 24, t: 42, b: 150},
       hovermode: "x unified",
       hoverlabel: {bgcolor: "#ffffff", bordercolor: "#969696", font: {color: "#252525"}},
-      xaxis: {
-        type: "category",
-        categoryorder: "array",
-        categoryarray: periods,
-        tickvals: ticks.tickvals,
-        ticktext: ticks.ticktext,
-        tickangle: -55,
-        showgrid: true,
-        gridcolor: "#d9d9d9",
-        zeroline: false,
-        fixedrange: false,
-      },
+      xaxis,
       yaxis: {
-        title: {text: "Percent"},
-        rangemode: "tozero",
-        ticksuffix: "%",
+        title: {text: showingChanges ? "Change (percentage points)" : "Percent"},
+        rangemode: showingChanges ? "normal" : "tozero",
+        ticksuffix: showingChanges ? " pp" : "%",
         showgrid: true,
         gridcolor: "#d9d9d9",
-        zeroline: false,
+        zeroline: showingChanges,
+        zerolinecolor: "#666666",
+        zerolinewidth: 1,
         fixedrange: false,
       },
       legend: {
@@ -232,23 +290,29 @@ async function draw() {
       displaylogo: false,
       scrollZoom: false,
       modeBarButtonsToRemove: ["select2d", "lasso2d", "autoScale2d"],
-      toImageButtonOptions: {format: "png", filename: `${state.family}-${state.frequency}`},
+      toImageButtonOptions: {format: "png", filename: `${state.family}-${state.frequency}-${state.change}`},
     });
 
     document.getElementById("latest-values").textContent = latestText(rows);
     document.getElementById("download-link").href = path;
     document.getElementById("construction-note").textContent = CONSTRUCTION[state.family];
+    document.getElementById("interpretation-note").textContent = interpretationText();
   } catch (error) {
     status.textContent = `${error.message}. Serve the repository through HTTP rather than opening index.html directly.`;
   }
 }
 
 function updateControls() {
-  for (const [control, value] of [["family-control", state.family], ["frequency-control", state.frequency]]) {
+  for (const [control, value] of [
+    ["family-control", state.family],
+    ["frequency-control", state.frequency],
+    ["change-control", state.change],
+  ]) {
     document.querySelectorAll(`#${control} button`).forEach((button) => {
       button.setAttribute("aria-pressed", String(button.dataset.value === value));
     });
   }
+  document.querySelector("#change-control [data-value='qoq']").hidden = state.frequency === "annual";
 }
 
 function bindControl(id, key) {
@@ -256,6 +320,9 @@ function bindControl(id, key) {
     const button = event.target.closest("button[data-value]");
     if (!button || state[key] === button.dataset.value) return;
     state[key] = button.dataset.value;
+    if (key === "frequency" && state.frequency === "annual" && state.change === "qoq") {
+      state.change = "yoy";
+    }
     updateControls();
     const query = new URLSearchParams(state);
     window.history.replaceState(null, "", `${window.location.pathname}?${query}`);
@@ -265,7 +332,10 @@ function bindControl(id, key) {
 
 if (!DATASETS[state.family]) state.family = "felgueroso";
 if (!DATASETS[state.family][state.frequency]) state.frequency = "quarterly";
+if (!["level", "qoq", "yoy"].includes(state.change)) state.change = "level";
+if (state.frequency === "annual" && state.change === "qoq") state.change = "yoy";
 bindControl("family-control", "family");
 bindControl("frequency-control", "frequency");
+bindControl("change-control", "change");
 updateControls();
 draw();

@@ -43,6 +43,14 @@
           <button type="button" data-value="annual" aria-pressed="false">Annual</button>
         </div>
       </fieldset>
+      <fieldset>
+        <legend>Display</legend>
+        <div class="button-group" id="change-control">
+          <button type="button" data-value="level" aria-pressed="true">Level</button>
+          <button type="button" data-value="qoq" aria-pressed="false">Quarter-on-quarter</button>
+          <button type="button" data-value="yoy" aria-pressed="false">Year-on-year</button>
+        </div>
+      </fieldset>
     </section>
 
     <section aria-labelledby="chart-title">
@@ -52,7 +60,7 @@
       <div id="chart" role="img" aria-label="Interactive labor-underutilization time-series chart"></div>
       <p id="chart-status" class="status" aria-live="polite"></p>
       <div class="chart-links">
-        <a id="download-link" href="data/derived/felgueroso_quarterly.csv" download>Download displayed CSV</a>
+        <a id="download-link" href="data/derived/felgueroso_quarterly.csv" download>Download source CSV</a>
         <a href="https://github.com/mvazcar/spain-labor-underutilization/blob/main/FELGUEROSO_COMPARISON.md">Replication audit</a>
       </div>
     </section>
@@ -64,7 +72,7 @@
       </div>
       <div>
         <h2>Interpretation</h2>
-        <p>U3 is the official unemployment rate. U4–U6 progressively include forms of labor underutilization excluded from U3; they are broader indicators, not corrections to an incorrectly measured unemployment rate.</p>
+        <p id="interpretation-note"></p>
       </div>
       <div>
         <h2>Source and limitations</h2>
