@@ -3,86 +3,114 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Interactive U1-U6 labor-underutilization measures for Spain from EPA microdata.">
+  <meta name="description" content="Interactive U1–U6 labor-underutilization measures for Spain constructed from EPA microdata.">
   <title>Labor underutilization in Spain</title>
-  <link rel="canonical" href="https://mvazcar.com/visual/spain-labor-underutilization/">
-  <meta property="og:title" content="Labor underutilization in Spain">
-  <meta property="og:description" content="Interactive U1-U6 measures constructed from EPA public microdata.">
-  <meta property="og:url" content="https://mvazcar.com/visual/spain-labor-underutilization/">
-  <meta property="og:type" content="website">
   <link rel="stylesheet" href="dashboard.css">
   <script src="https://cdn.plot.ly/plotly-3.0.1.min.js" defer></script>
   <script src="dashboard.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="site-name" href="/">Miguel Vázquez-Carrero</a>
-    <nav aria-label="Project links">
-      <a href="/">Home</a>
-      <a href="https://github.com/mvazcar/spain-labor-underutilization/blob/main/METHOD.md">Method</a>
-      <a href="https://github.com/mvazcar/spain-labor-underutilization">Source code</a>
-    </nav>
+    <div class="header-inner">
+      <a class="wordmark" href="https://mvazcar.com/">mvazcar.com</a>
+      <nav aria-label="Project links">
+        <a href="https://github.com/mvazcar/spain-labor-underutilization/blob/main/METHOD.md">Method</a>
+        <a href="https://github.com/mvazcar/spain-labor-underutilization">Data and code</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <h1>Alternative measures of labor underutilization</h1>
-    <p class="subtitle">Spain · EPA public microdata · automatically reproducible</p>
+    <article class="chart-card">
+      <header class="chart-heading">
+        <p class="eyebrow">Spain · Labor market</p>
+        <h1>Alternative measures of labor underutilization</h1>
+        <p class="subtitle">Quarterly and annual U1–U6 estimates constructed from the Spanish Labour Force Survey (EPA) public microdata.</p>
+      </header>
 
-    <section class="controls" aria-label="Chart controls">
-      <fieldset>
-        <legend>Definition</legend>
-        <div class="button-group" id="family-control">
-          <button type="button" data-value="felgueroso" aria-pressed="true">Felgueroso/Fedea U3–U6</button>
-          <button type="button" data-value="bls" aria-pressed="false">BLS-style U1–U6</button>
+      <div class="view-bar">
+        <div class="view-tabs" role="tablist" aria-label="Data view">
+          <button id="chart-tab" class="view-tab" type="button" role="tab" aria-controls="chart-panel" aria-selected="true" data-view="chart">Chart</button>
+          <button id="table-tab" class="view-tab" type="button" role="tab" aria-controls="table-panel" aria-selected="false" data-view="table">Table</button>
         </div>
-      </fieldset>
-      <fieldset>
-        <legend>Frequency</legend>
-        <div class="button-group" id="frequency-control">
-          <button type="button" data-value="quarterly" aria-pressed="true">Quarterly</button>
-          <button type="button" data-value="annual" aria-pressed="false">Annual</button>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Display</legend>
-        <div class="button-group" id="change-control">
-          <button type="button" data-value="level" aria-pressed="true">Level</button>
-          <button type="button" data-value="qoq" aria-pressed="false">Quarter-on-quarter</button>
-          <button type="button" data-value="yoy" aria-pressed="false">Year-on-year</button>
-        </div>
-      </fieldset>
-    </section>
-
-    <section aria-labelledby="chart-title">
-      <h2 id="chart-title" class="sr-only">Labor-underutilization time series</h2>
-      <p id="latest-values" class="latest-values" aria-live="polite"></p>
-      <p id="plot-title" class="plot-title"></p>
-      <div id="chart" role="img" aria-label="Interactive labor-underutilization time-series chart"></div>
-      <p id="chart-status" class="status" aria-live="polite"></p>
-      <div class="chart-links">
-        <a id="download-link" href="data/derived/felgueroso_quarterly.csv" download>Download source CSV</a>
-        <a href="https://github.com/mvazcar/spain-labor-underutilization/blob/main/FELGUEROSO_COMPARISON.md">Replication audit</a>
+        <p id="latest-period" class="latest-period" aria-live="polite"></p>
       </div>
-    </section>
 
-    <section class="notes" aria-label="Chart documentation">
-      <div>
-        <h2>Construction</h2>
+      <section class="controls" aria-label="Chart controls">
+        <fieldset>
+          <legend>Definition</legend>
+          <div class="button-group" id="family-control">
+            <button type="button" data-value="felgueroso" aria-pressed="true">Felgueroso/Fedea</button>
+            <button type="button" data-value="bls" aria-pressed="false">BLS-style</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Frequency</legend>
+          <div class="button-group" id="frequency-control">
+            <button type="button" data-value="quarterly" aria-pressed="true">Quarterly</button>
+            <button type="button" data-value="annual" aria-pressed="false">Annual</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Display</legend>
+          <div class="button-group" id="change-control">
+            <button type="button" data-value="level" aria-pressed="true">Level</button>
+            <button type="button" data-value="qoq" aria-pressed="false">Quarter-on-quarter</button>
+            <button type="button" data-value="yoy" aria-pressed="false">Year-on-year</button>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="series-picker" aria-labelledby="series-heading">
+        <div class="series-picker-heading">
+          <div>
+            <h2 id="series-heading">Measures</h2>
+            <p>Click a measure to show or hide its line.</p>
+          </div>
+          <button id="show-all-lines" class="text-button" type="button">Show all</button>
+        </div>
+        <div id="series-control" class="series-control"></div>
+      </section>
+
+      <section id="chart-panel" class="view-panel" role="tabpanel" aria-labelledby="chart-tab">
+        <div class="plot-heading">
+          <p id="plot-title" class="plot-title"></p>
+          <p id="latest-values" class="sr-only" aria-live="polite"></p>
+        </div>
+        <div id="chart" role="img" aria-label="Interactive labor-underutilization time-series chart"></div>
+        <p id="chart-status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section id="table-panel" class="view-panel" role="tabpanel" aria-labelledby="table-tab" hidden>
+        <p id="table-title" class="plot-title"></p>
+        <div class="table-wrap">
+          <table id="data-table">
+            <caption class="sr-only">Labor-underutilization estimates by period</caption>
+          </table>
+        </div>
+      </section>
+
+      <div class="chart-actions" aria-label="Download and sharing options">
+        <a id="download-link" class="action" href="data/derived/felgueroso_quarterly.csv" download>Download CSV</a>
+        <button id="download-png" class="action" type="button">Download PNG</button>
+        <button id="copy-link" class="action" type="button">Copy link</button>
+      </div>
+
+      <section class="source-block" aria-label="Data source and notes">
+        <p><strong>Data source:</strong> Own calculations from INE, Spanish Labour Force Survey (EPA) public microdata.</p>
         <p id="construction-note"></p>
-      </div>
-      <div>
-        <h2>Interpretation</h2>
         <p id="interpretation-note"></p>
-      </div>
-      <div>
-        <h2>Source and limitations</h2>
-        <p>Own calculations from INE EPA public microdata. The dashed line marks the EPA-2021 redesign and population-weight change, not an economic event. Public age is top-coded at 65+, so the documented 16–74 scope cannot be imposed exactly.</p>
-      </div>
+        <p><strong>Break in series:</strong> The dashed marker denotes the EPA-2021 redesign and population-weight change, not an economic event. Public age is top-coded at 65+, so the documented 16–74 scope cannot be imposed exactly.</p>
+      </section>
+    </article>
+
+    <section class="method-strip" aria-label="Methodological credit">
+      <p>Method adapted from <a href="https://nadaesgratis.es/felgueroso/subempleo-y-precariedad-indicadores-para-la-recuperaci%C3%B3n">Florentino Felgueroso</a> and <a href="https://laboral.fedea.net/docs/OTMT/2023/OTMT_notas_tecnicas_may23.pdf">Fedea Methodological Note 3</a>. See the <a href="https://github.com/mvazcar/spain-labor-underutilization/blob/main/FELGUEROSO_COMPARISON.md">replication audit</a>.</p>
     </section>
   </main>
 
   <footer>
-    <p>Method adapted from <a href="https://nadaesgratis.es/felgueroso/subempleo-y-precariedad-indicadores-para-la-recuperaci%C3%B3n">Florentino Felgueroso</a> and <a href="https://laboral.fedea.net/docs/OTMT/2023/OTMT_notas_tecnicas_may23.pdf">Fedea Methodological Note 3</a>. Primary data: <a href="https://www.ine.es/">INE</a>.</p>
+    <p>Reusable data and a fully reproducible pipeline are available in the project repository.</p>
   </footer>
 </body>
 </html>
