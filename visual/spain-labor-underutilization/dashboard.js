@@ -44,7 +44,7 @@ const LABELS = {
 
 const CONSTRUCTION = {
   felgueroso: "U4 adds available inactive people who did not search for economic reasons; U5 adds all available inactive people who want work; U6 adds involuntary part-time workers to the numerator only.",
-  bls: "This stricter BLS-style mapping reports U1 and U4–U6 as transparent estimates or proxies wherever public EPA variables cannot reproduce a BLS screen exactly.",
+  bls: "This BLS-oriented experimental mapping reports U1 and U4–U6 as transparent estimates or proxies wherever public EPA variables cannot reproduce a BLS screen exactly.",
 };
 
 const LEVEL_INTERPRETATION = "U3 is the official unemployment rate. U4–U6 progressively include forms of labor underutilization excluded from U3; they are broader indicators, not corrections to an incorrectly measured unemployment rate.";
@@ -205,7 +205,9 @@ function annualTickSettings(rows) {
 }
 
 function chartTitle() {
-  const definition = state.family === "felgueroso" ? "Felgueroso/Fedea definitions" : "BLS-style definitions";
+  const definition = state.family === "felgueroso"
+    ? "EPA operational · Felgueroso/FEDEA"
+    : "BLS-oriented experimental mapping";
   return `${definition} · ${state.frequency} · ${changeDescription()}`;
 }
 
