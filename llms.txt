@@ -6,10 +6,11 @@
 
 ## Overview
 
-Miguel Vázquez-Carrero is a macroeconomist interested in how firms grow and
-compete, and how this shapes productivity and employment. His main work
-combines structural models with microdata. He also works on policy evaluation
-using experimental and quasi-experimental methods.
+Miguel Vázquez-Carrero is an economist interested in economic growth,
+competition, and firm dynamics. In his macroeconomic research, he studies how
+firms grow and compete, how resources are reallocated across them, and how
+these forces shape aggregate productivity. He also conducts impact evaluations
+using experiments and quasi-experiments.
 
 ## Research Interests
 
@@ -29,27 +30,10 @@ With Andrés Erosa and Sevi Mora. Work in progress.
 
 - Empirical analysis of microdata
 - Structural macroeconomic modeling
+- Experimental and quasi-experimental methods
 - Computational methods
 
-## Open-Source Code
-
-### Modern Pipelines for Spanish Microdata
-
-Python and Polars pipelines for reproducible, large-scale data processing:
-
-- Muestra Continua de Vidas Laborales: https://github.com/mvazcar/MCVL
-- Panel de Hogares: https://github.com/mvazcar/panel-de-hogares
-- Encuesta Financiera de las Familias: https://github.com/mvazcar/EFF
-- Encuesta de Condiciones de Vida: https://github.com/mvazcar/ECV
-
-### Firm Dynamics
-
-- deepHopenhayn: https://github.com/mvazcar/deepHopenhayn
-  A Hopenhayn model solved with neural networks.
-- firm-dynamics: https://github.com/mvazcar/firm-dynamics
-  Code for classic firm-dynamics models.
-
-### Visualizations
+## Visualizations
 
 - Labor underutilization in Spain:
   https://mvazcar.com/visual/spain-labor-underutilization/
@@ -67,4 +51,4 @@ Python and Polars pipelines for reproducible, large-scale data processing:
 This file describes work publicly listed on the website. It is not a complete
 publication record.
 
-Last updated: 2026-07-30
+Last updated: 2026-08-22
