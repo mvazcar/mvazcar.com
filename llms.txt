@@ -47,13 +47,6 @@ https://github.com/mvazcar/math_bootcamp
 - Day 4: Optimization: https://raw.githubusercontent.com/mvazcar/math_bootcamp/main/output/pdf/math4.pdf
 - Day 5: General Equilibrium: https://raw.githubusercontent.com/mvazcar/math_bootcamp/main/output/pdf/math5.pdf
 
-## Visualizations
-
-- Labor underutilization in Spain:
-  https://mvazcar.com/visual/spain-labor-underutilization/
-  Interactive quarterly and annual measures constructed from EPA public
-  microdata.
-
 ## Contact
 
 - Email: mvazcar@eco.uc3m.es
