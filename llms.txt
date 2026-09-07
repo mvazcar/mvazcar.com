@@ -47,6 +47,18 @@ https://github.com/mvazcar/math_bootcamp
 - Day 4: Optimization: https://raw.githubusercontent.com/mvazcar/math_bootcamp/main/output/pdf/math4.pdf
 - Day 5: General Equilibrium: https://raw.githubusercontent.com/mvazcar/math_bootcamp/main/output/pdf/math5.pdf
 
+### Foundations of Economics
+
+A first course in economics for students entering the Spanish university
+system, taught in English and Spanish. It follows Acemoglu, Laibson and
+List's Economics, from optimization and markets through to growth and
+development.
+
+- Syllabus (English): https://mvazcar.com/assets/foundations-of-economics-syllabus-en.pdf
+- Syllabus (Spanish): https://mvazcar.com/assets/foundations-of-economics-syllabus-es.pdf
+- Week 0 slides (English): https://mvazcar.com/assets/foundations-of-economics-week0-en.pdf
+- Week 0 slides (Spanish): https://mvazcar.com/assets/foundations-of-economics-week0-es.pdf
+
 ## Contact
 
 - Email: mvazcar@eco.uc3m.es
@@ -58,4 +70,4 @@ https://github.com/mvazcar/math_bootcamp
 This file describes work publicly listed on the website. It is not a complete
 publication record.
 
-Last updated: 2026-08-29
+Last updated: 2026-09-07
