@@ -56,8 +56,8 @@ development.
 
 - Syllabus (English): https://mvazcar.com/assets/foundations-of-economics-syllabus-en.pdf
 - Syllabus (Spanish): https://mvazcar.com/assets/foundations-of-economics-syllabus-es.pdf
-- Week 0 slides (English): https://mvazcar.com/assets/foundations-of-economics-week0-en.pdf
-- Week 0 slides (Spanish): https://mvazcar.com/assets/foundations-of-economics-week0-es.pdf
+- Week 0 (English): https://mvazcar.com/assets/foundations-of-economics-week0-en.pdf
+- Week 0 (Spanish): https://mvazcar.com/assets/foundations-of-economics-week0-es.pdf
 
 ## Contact
 
