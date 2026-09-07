@@ -50,14 +50,11 @@ https://github.com/mvazcar/math_bootcamp
 ### Foundations of Economics
 
 A first course in economics for students entering the Spanish university
-system, taught in English and Spanish. It follows Acemoglu, Laibson and
-List's Economics, from optimization and markets through to growth and
-development.
+system. It follows Acemoglu, Laibson and List's Economics, from
+optimization and markets through to growth and development.
 
-- Syllabus (English): https://mvazcar.com/assets/foundations-of-economics-syllabus-en.pdf
-- Syllabus (Spanish): https://mvazcar.com/assets/foundations-of-economics-syllabus-es.pdf
-- Week 0 (English): https://mvazcar.com/assets/foundations-of-economics-week0-en.pdf
-- Week 0 (Spanish): https://mvazcar.com/assets/foundations-of-economics-week0-es.pdf
+- Syllabus: https://mvazcar.com/assets/foundations-of-economics-syllabus-en.pdf
+- Week 0: https://mvazcar.com/assets/foundations-of-economics-week0-en.pdf
 
 ## Contact
 
