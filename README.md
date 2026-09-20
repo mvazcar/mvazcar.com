@@ -51,40 +51,31 @@ Then open <http://localhost:1314/>.
 This repository contains the generated static output, not the local Hugo source
 project. Third-party licensing is documented in `THIRD_PARTY_LICENSES.md`.
 
-## Hidden Kaiju dark theme
+## Hidden Kaiju edition
 
-The homepage and 404 page load `assets/theme.css`. The normal light appearance
-stays the same; a device or browser that requests dark mode reveals a pure black
-background (`#000000`) and turquoise headings and links (`#10FFDC`), inspired by
-the Kaiju No. 8 credits. Body text is a soft mint-white (`#D1E5E1`), and the
-coauthor line uses a muted mint (`#91B6AF`).
+The main homepage and 404 page stay light, regardless of the device's dark-mode
+preference. Only [mvazcar.com/kaijuu8/](https://mvazcar.com/kaijuu8/) opts into the
+Kaiju No. 8 palette: pure black (`#000000`), turquoise headings and links
+(`#10FFDC`), soft mint-white body text (`#D1E5E1`), and muted mint secondary text
+(`#91B6AF`). Both editions use `assets/theme.css`.
 
-The theme follows `prefers-color-scheme` automatically, including preference
-changes while the page is open. There is no visible switch or JavaScript, and
-printed pages use the light palette. The separate labor dashboard has its own
-stylesheet and is unchanged.
+The hidden edition has the same content as the homepage. Its Home, Research,
+and Teaching links stay under `/kaijuu8/`. Opening `/` always returns to the
+normal white edition; there is no saved preference or automatic dark-mode
+activation. Printing uses the light palette. Browser extensions can still
+apply their own appearance changes, but do not activate this site's theme.
 
-Windows, macOS, and mobile system dark modes work when the browser passes that
-preference to the page. A browser's explicit website appearance preference can
-override the OS setting; a dark browser toolbar alone does not guarantee dark
-web content.
+The hidden URL is deliberately absent from the main navigation and sitemap.
+It has a canonical link to the homepage and a noindex directive to avoid a
+second search result for the same content.
 
-Dark-mode extensions have no universal detection API. A best-effort CSS hook
-also recognizes Dark Reader's Dynamic-mode `data-darkreader-scheme="dark"`
-marker when the OS is light. Dark Reader may still recolor the page, and its
-automatic dark-site detection can remove that marker. Filter modes and other
-extensions are not guaranteed to reveal or preserve the custom palette.
-For the exact palette, use the system/browser dark preference and exclude the
-site from extension recoloring (or use the extension's native-dark-site
-detection). The site does not disable extensions or change visitors' settings.
+After editing `index.html`, regenerate the hidden edition before publishing:
 
-To preview it, run the local server above and switch your device/browser to dark
-mode, or emulate `prefers-color-scheme: dark` in the browser's developer tools.
-Switch back to light mode to compare. Both HTML pages also declare matching
-light/dark browser toolbar colors for browsers that support `theme-color`.
+```sh
+node scripts/build-kaijuu8.mjs
+```
 
-To publish, commit `index.html`, `404.html`, and `assets/theme.css` and follow the
-publishing flow above. If regenerating the site with Hugo, carry the stylesheet
-link and theme-color metadata into the source head template, remove the old
-forced-light override, and retain the variable-based byline and image-border
-colors so the generated files preserve the theme.
+Commit both HTML pages along with any stylesheet changes. GitHub Pages serves
+`kaijuu8/index.html` directly; it does not need a Node runtime. If rebuilding
+from Hugo, carry the shared stylesheet link and light-only metadata into the
+source templates, then regenerate the hidden edition from the new homepage.
