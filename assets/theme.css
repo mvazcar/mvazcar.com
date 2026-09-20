@@ -1,0 +1,84 @@
+/* Shared by the homepage and 404 page. Dark mode is the hidden Kaiju palette. */
+:root {
+  color-scheme: light;
+  --background-color: #fff;
+  --heading-color: #222;
+  --text-color: #444;
+  --link-color: #3273dc;
+  --visited-color: #8b6fcb;
+  --blockquote-color: #222;
+  --muted-color: #666;
+  --border-color: #e5e5e5;
+  --blockquote-border-color: #999;
+}
+
+html {
+  background-color: var(--background-color);
+}
+
+.byline {
+  color: var(--muted-color);
+}
+
+blockquote {
+  border-left-color: var(--blockquote-border-color);
+}
+
+/* Follow the visitor's device/browser preference without JavaScript. */
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --kaiju-turquoise: #10ffdc;
+    --background-color: #000;
+    --heading-color: var(--kaiju-turquoise);
+    --text-color: #d1e5e1;
+    --link-color: var(--kaiju-turquoise);
+    --visited-color: #99ffee;
+    --blockquote-color: #d1e5e1;
+    --muted-color: #91b6af;
+    --border-color: #16483f;
+    --blockquote-border-color: #8ecdc3;
+  }
+
+  /* Keep links identifiable without relying on their color alone. */
+  main a {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  ::selection {
+    background-color: var(--kaiju-turquoise);
+    color: #000;
+  }
+}
+
+/*
+ * Best-effort support for Dark Reader's Dynamic mode on a light OS.
+ * This marker belongs to the extension, not a browser standard. The extension
+ * may still adjust these colors according to the visitor's own settings.
+ */
+@media screen {
+  :root[data-darkreader-scheme="dark"] {
+    color-scheme: dark;
+    --kaiju-turquoise: #10ffdc;
+    --background-color: #000;
+    --heading-color: var(--kaiju-turquoise);
+    --text-color: #d1e5e1;
+    --link-color: var(--kaiju-turquoise);
+    --visited-color: #99ffee;
+    --blockquote-color: #d1e5e1;
+    --muted-color: #91b6af;
+    --border-color: #16483f;
+    --blockquote-border-color: #8ecdc3;
+  }
+
+  :root[data-darkreader-scheme="dark"] main a {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  :root[data-darkreader-scheme="dark"] ::selection {
+    background-color: var(--kaiju-turquoise);
+    color: #000;
+  }
+}
