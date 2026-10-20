@@ -51,31 +51,28 @@ Then open <http://localhost:1314/>.
 This repository contains the generated static output, not the local Hugo source
 project. Third-party licensing is documented in `THIRD_PARTY_LICENSES.md`.
 
-## Hidden Kaiju edition
+## Light and dark mode
 
-The main homepage and 404 page stay light, regardless of the device's dark-mode
-preference. Only [mvazcar.com/kaijuu8/](https://mvazcar.com/kaijuu8/) opts into the
-Kaiju No. 8 palette: pure black (`#000000`), turquoise headings and links
-(`#10FFDC`), soft mint-white body text (`#D1E5E1`), and muted mint secondary text
-(`#91B6AF`). Both editions use `assets/theme.css`.
+The homepage and 404 page follow the browser's light or dark preference. Both
+palettes live in `assets/theme.css`: white by default, and Hugo Bear Blog's
+dark palette (background `#01242e`) when the browser asks for dark. There is
+no toggle or saved preference. Printing always uses the light palette.
 
-The hidden edition has the same content as the homepage. Its Home, Research,
-and Teaching links stay under `/kaijuu8/`. Opening `/` always returns to the
-normal white edition; there is no saved preference or automatic dark-mode
-activation. Printing uses the light palette. Browser extensions can still
-apply their own appearance changes, but do not activate this site's theme.
-
-The hidden URL is deliberately absent from the main navigation and sitemap.
-It has a canonical link to the homepage and a noindex directive to avoid a
-second search result for the same content.
-
-After editing `index.html`, regenerate the hidden edition before publishing:
+The Teaching plot has a transparent version for each mode. A `<picture>`
+element in `index.html` shows `assets/indifference-curves-dark.png` in dark
+mode and `assets/indifference-curves.png` otherwise. Both are made from the
+Day 3 slide rendered on white:
 
 ```sh
-node scripts/build-kaijuu8.mjs
+python scripts/make_plot_variants.py
 ```
 
-Commit both HTML pages along with any stylesheet changes. GitHub Pages serves
-`kaijuu8/index.html` directly; it does not need a Node runtime. If rebuilding
-from Hugo, carry the shared stylesheet link and light-only metadata into the
-source templates, then regenerate the hidden edition from the new homepage.
+The script needs NumPy and Pillow. It overwrites `indifference-curves.png`
+with the transparent light version, which looks identical on white, and
+writes the dark version next to it with lighter inks of the same hues. To
+use a new slide image, copy the white render over `indifference-curves.png`
+and rerun it; rerunning on its own output gives the same files.
+
+If rebuilding from Hugo, carry the shared stylesheet link, the `light dark`
+color-scheme and theme-color metadata, and the `<picture>` element into the
+source templates.

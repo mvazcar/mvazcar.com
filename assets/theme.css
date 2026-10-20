@@ -1,6 +1,6 @@
-/* The standard site stays light. Only /kaijuu8/ opts into the Kaiju palette. */
+/* The site follows the browser's light or dark preference. Printing stays light. */
 :root {
-  color-scheme: only light;
+  color-scheme: light;
   --background-color: #fff;
   --heading-color: #222;
   --text-color: #444;
@@ -24,30 +24,18 @@ blockquote {
   border-left-color: var(--blockquote-border-color);
 }
 
-/* A dedicated page opts in; system and extension dark-mode signals do not. */
-@media screen {
-  :root[data-theme="kaijuu8"] {
+/* Bear Blog's dark palette, with the site's extra colours to match. */
+@media screen and (prefers-color-scheme: dark) {
+  :root {
     color-scheme: dark;
-    --kaiju-turquoise: #10ffdc;
-    --background-color: #000;
-    --heading-color: var(--kaiju-turquoise);
-    --text-color: #d1e5e1;
-    --link-color: var(--kaiju-turquoise);
-    --visited-color: #99ffee;
-    --blockquote-color: #d1e5e1;
-    --muted-color: #91b6af;
-    --border-color: #16483f;
-    --blockquote-border-color: #8ecdc3;
-  }
-
-  /* Keep links identifiable without relying on their color alone. */
-  :root[data-theme="kaijuu8"] main a {
-    text-decoration: underline;
-    text-underline-offset: 0.15em;
-  }
-
-  :root[data-theme="kaijuu8"] ::selection {
-    background-color: var(--kaiju-turquoise);
-    color: #000;
+    --background-color: #01242e;
+    --heading-color: #eee;
+    --text-color: #ddd;
+    --link-color: #8cc2dd;
+    --visited-color: #b9a6e6;
+    --blockquote-color: #ccc;
+    --muted-color: #a9b8bd;
+    --border-color: #1d4654;
+    --blockquote-border-color: #6f8f99;
   }
 }
