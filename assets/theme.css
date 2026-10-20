@@ -24,18 +24,19 @@ blockquote {
   border-left-color: var(--blockquote-border-color);
 }
 
-/* Bear Blog's dark palette, with the site's extra colours to match. */
+/* Material Design's dark theme: the #121212 surface, with white text at the
+   light palette's emphasis levels (87%, 73%, 60%) and 200-tone accents. */
 @media screen and (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --background-color: #01242e;
-    --heading-color: #eee;
-    --text-color: #ddd;
-    --link-color: #8cc2dd;
-    --visited-color: #b9a6e6;
-    --blockquote-color: #ccc;
-    --muted-color: #a9b8bd;
-    --border-color: #1d4654;
-    --blockquote-border-color: #6f8f99;
+    --background-color: #121212;
+    --heading-color: #e0e0e0;
+    --text-color: #bfbfbf;
+    --link-color: #90caf9;
+    --visited-color: #b39ddb;
+    --blockquote-color: #e0e0e0;
+    --muted-color: #a0a0a0;
+    --border-color: #2e2e2e;
+    --blockquote-border-color: #717171;
   }
 }

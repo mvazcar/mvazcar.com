@@ -54,8 +54,8 @@ project. Third-party licensing is documented in `THIRD_PARTY_LICENSES.md`.
 ## Light and dark mode
 
 The homepage and 404 page follow the browser's light or dark preference. Both
-palettes live in `assets/theme.css`: white by default, and Hugo Bear Blog's
-dark palette (background `#01242e`) when the browser asks for dark. There is
+palettes live in `assets/theme.css`: white by default, and Material Design's
+dark theme (surface `#121212`) when the browser asks for dark. There is
 no toggle or saved preference. Printing always uses the light palette.
 
 The Teaching plot has a transparent version for each mode. A `<picture>`
