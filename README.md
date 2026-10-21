@@ -58,6 +58,13 @@ palettes live in `assets/theme.css`: white by default, and Material Design's
 dark theme (surface `#121212`) when the browser asks for dark. There is
 no toggle or saved preference. Printing always uses the light palette.
 
+Dark Reader gets the same dark theme, even while the browser is light. When
+the extension marks the page as dark (`data-darkreader-scheme="dark"` on
+`<html>`), a short inline script in each page's `<head>` sets
+`data-theme="dark"`, switches the plot to its dark version, and adds
+`<meta name="darkreader-lock">`, which makes Dark Reader remove its own
+recolouring. Only Dark Reader's default Dynamic mode marks the page this way.
+
 The Teaching plot has a transparent version for each mode. A `<picture>`
 element in `index.html` shows `assets/indifference-curves-dark.png` in dark
 mode and `assets/indifference-curves.png` otherwise. Both are made from the
@@ -74,5 +81,5 @@ use a new slide image, copy the white render over `indifference-curves.png`
 and rerun it; rerunning on its own output gives the same files.
 
 If rebuilding from Hugo, carry the shared stylesheet link, the `light dark`
-color-scheme and theme-color metadata, and the `<picture>` element into the
-source templates.
+color-scheme and theme-color metadata, the Dark Reader script, and the
+`<picture>` element into the source templates.

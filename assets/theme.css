@@ -40,3 +40,21 @@ blockquote {
     --blockquote-border-color: #717171;
   }
 }
+
+/* The same palette when Dark Reader is on while the browser is light: the
+   inline script in each page sets data-theme="dark" and locks Dark Reader
+   out, so these colours show unaltered.  Keep in step with the block above. */
+@media screen {
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --background-color: #121212;
+    --heading-color: #e0e0e0;
+    --text-color: #bfbfbf;
+    --link-color: #90caf9;
+    --visited-color: #b39ddb;
+    --blockquote-color: #e0e0e0;
+    --muted-color: #a0a0a0;
+    --border-color: #2e2e2e;
+    --blockquote-border-color: #717171;
+  }
+}
