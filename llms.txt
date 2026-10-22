@@ -6,10 +6,10 @@
 
 ## Overview
 
-Miguel Vázquez-Carrero is an economist studying the macroeconomics of firm
-dynamics, competition, and resource reallocation. His research examines how
-these forces shape aggregate productivity and long-run growth. He also
-conducts impact evaluations using experiments and quasi-experiments.
+Miguel Vázquez-Carrero is a macroeconomist studying firm dynamics,
+competition, and resource reallocation, and how they shape aggregate
+productivity and long-run growth. He also works on impact evaluation, using
+experiments and quasi-experiments.
 
 ## Research Interests
 
@@ -18,12 +18,27 @@ conducts impact evaluations using experiments and quasi-experiments.
 - Productivity growth
 - Employment and labor-market outcomes
 - Quantitative macroeconomics
+- Political economy and impact evaluation
 
-## Current Research
+## Research
 
-### From firm demographics to measured TFP
+### From Firm Demographics to Measured TFP
 
-With Andrés Erosa and Sevi Mora. Work in progress.
+With Andrés Erosa and Sevi Mora. Poster at the II Madrid Macro Mountain
+Conference (Banco de España, CEMFI, UC3M), 2026. To be presented at the
+Simposio de Economía, 2026.
+
+### Bad for Business: Political Polarization and Firm Performance in the US
+
+With Joaquín Artés and Luis Cornago-Bonal. Presented at the 4th Copenhagen
+Money in Politics Conference (2025) and EPSA (2025).
+
+### Public Infrastructure, Retrospective and Prospective Voting: DiD with Geolocated Data from Madrid Río Park
+
+With Joaquín Artés, Enrique García-Viñuela, and Henar Salas-Olmedo.
+Published in Electoral Studies 78 (2022) as "Do actions speak louder than
+words? Evidence on voter behavior from Madrid Rio Park".
+https://doi.org/10.1016/j.electstud.2022.102489
 
 ## Research Methods
 
@@ -58,4 +73,4 @@ https://github.com/mvazcar/math_bootcamp
 This file describes work publicly listed on the website. It is not a complete
 publication record.
 
-Last updated: 2026-09-07
+Last updated: 2026-10-22
